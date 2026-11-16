@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090f17" />
+  <title>GUFA | Member Management</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="members.js" defer></script>
+</head>
+<body>
+  <main class="schedule-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">⚓</div>
+        <div class="brand-name">GUFA</div>
+        <div class="association-name">
+          <span>GUINACOT UNITED</span>
+          <span>FISHERMEN'S ASSOCIATION</span>
+        </div>
+      </div>
+      <h1 id="page-title">⚓ BANTAY SCHEDULE</h1>
+    </header>
+
+    <nav class="page-nav" aria-label="GUFA pages">
+      <a href="index.html" class="nav-link" data-page="schedule">Bantay Schedule</a>
+      <a href="index.html?page=members" class="nav-link" data-page="members">Member Masterlist</a>
+      <a href="attendance.html" class="nav-link">Attendance</a>
+    </nav>
+
+    <section id="schedule-page" aria-label="Bantay schedule">
+      <div id="schedule-grid" class="schedule-grid"></div>
+    </section>
+
+    <section id="members-page" class="members-page" hidden aria-label="Member masterlist">
+      <div class="members-toolbar">
+        <div><h2>Member Masterlist</h2><p>Central member records used by Bantay Schedule and Attendance.</p></div>
+        <div class="members-count" id="members-count"></div>
+      </div>
+      <div class="members-filters">
+        <input id="member-search" type="search" placeholder="Search member name..." aria-label="Search members">
+        <select id="member-status-filter" aria-label="Filter by status">
+          <option value="All">All statuses</option><option value="Active">Active</option><option value="Inactive">Inactive</option>
+        </select>
+        <select id="member-position-filter" aria-label="Filter by position">
+          <option value="All">All positions</option><option>President</option><option>Vice President</option><option>Treasurer</option><option>Secretary</option><option>Member</option>
+        </select>
+        <select id="member-address-filter" aria-label="Filter by address">
+          <option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Unassigned">Unassigned</option>
+        </select>
+      </div>
+      <div class="members-table-wrap">
+        <table class="members-table">
+          <thead><tr><th>Member</th><th>Address</th><th>Position</th><th>Status</th></tr></thead>
+          <tbody id="members-table-body"></tbody>
+        </table>
+      </div>
+      <p class="members-footnote">Members with no address are left unassigned. Update addresses, officer positions, and statuses as needed. Changes are saved in this browser.</p>
+    </section>
+
+
+    <footer class="schedule-footer" id="schedule-footer">
+      <div class="legend" aria-label="Schedule status legend">
+        <span class="legend-item yesterday">YESTERDAY <span id="yesterday-date"></span></span>
+        <span class="legend-item today">TODAY <span id="today-date"></span></span>
+        <span class="legend-item upcoming">UPCOMING <span id="upcoming-range"></span></span>
+      </div>
+      <p id="schedule-summary">⚓ GUFA • 1 YESTERDAY • CURRENT • 8 UPCOMING</p>
+    </footer>
+  </main>
+</body>
+</html>

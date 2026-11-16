@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090f17" />
+  <title>GUFA | Attendance</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="data.js" defer></script>
+  <script src="attendance-data.js" defer></script>
+  <script src="attendance.js" defer></script>
+</head>
+<body>
+  <main class="schedule-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">⚓</div>
+        <div class="brand-name">GUFA</div>
+        <div class="association-name"><span>GUINACOT UNITED</span><span>FISHERMEN'S ASSOCIATION</span></div>
+      </div>
+      <h1>📋 ATTENDANCE</h1>
+    </header>
+
+    <nav class="page-nav" aria-label="GUFA pages">
+      <a href="index.html" class="nav-link">Bantay Schedule</a>
+      <a href="index.html?page=members" class="nav-link">Member Masterlist</a>
+      <a href="attendance.html" class="nav-link active" aria-current="page">Attendance</a>
+    </nav>
+
+    <section class="attendance-page" aria-label="Weekly attendance">
+      <div class="members-toolbar attendance-toolbar">
+        <div><h2>Weekly Member Attendance</h2><p id="attendance-week-label">November 9–15, 2026</p></div>
+        <div class="attendance-summary" id="attendance-summary"></div>
+      </div>
+      <div class="attendance-tools">
+        <input id="attendance-search" type="search" placeholder="Search member name..." aria-label="Search members" />
+        <select id="attendance-status-filter" aria-label="Filter member status"><option value="Active">Active members</option><option value="All">All members</option><option value="Inactive">Inactive members</option></select>
+        <select id="attendance-address-filter" aria-label="Filter by address"><option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Unassigned">Unassigned</option></select>
+        <span class="attendance-key"><b>✓</b> Present = 0.5 credit</span>
+      </div>
+      <div class="attendance-table-wrap">
+        <table class="attendance-table">
+          <thead>
+            <tr class="day-heading"><th class="attendance-member-head" rowspan="2">Member</th><th colspan="2">MON<br><small>09 NOV</small></th><th colspan="2">TUE<br><small>10 NOV</small></th><th colspan="2">WED<br><small>11 NOV</small></th><th colspan="2">THU<br><small>12 NOV</small></th><th colspan="2">FRI<br><small>13 NOV</small></th><th colspan="2">SAT<br><small>14 NOV</small></th><th colspan="2">SUN<br><small>15 NOV</small></th><th rowspan="2">Worked</th><th rowspan="2">Target %</th></tr>
+            <tr class="session-heading"><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th></tr>
+          </thead>
+          <tbody id="attendance-table-body"></tbody>
+        </table>
+      </div>
+      <div class="attendance-footer"><span>Weekly target: <strong>2.0 credits</strong> (equivalent to 2 full days).</span><span>Each morning or afternoon attendance is 0.5 credit. More than 100% is allowed.</span></div>
+    </section>
+  </main>
+</body>
+</html>
