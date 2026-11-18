@@ -505,3 +505,111 @@ body {
 .member-status-label.inactive{border-color:#66505a;color:#d8aab5;background:#35232b}
 .attendance-check{display:inline-flex;align-items:center;justify-content:center;min-width:22px;min-height:22px;font-weight:900;user-select:text;cursor:default}
 .attendance-check.is-present{color:#45f58a}
+
+/* Mobile-only compact attendance table. Desktop keeps its original sizing. */
+@media (max-width: 767.98px) {
+  .attendance-table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .attendance-table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+  .attendance-table th,
+  .attendance-table td {
+    padding: 3px 1px !important;
+    font-size: 8px !important;
+    line-height: 1.1;
+    letter-spacing: -.2px;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .attendance-table th:first-child,
+  .attendance-table td:first-child {
+    width: 76px;
+    max-width: 76px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  .attendance-table .attendance-member {
+    gap: 3px;
+    min-width: 0;
+  }
+  .attendance-table .attendance-member img,
+  .attendance-table .attendance-member .member-initials {
+    display: none;
+  }
+  .attendance-table .attendance-member strong {
+    display: block;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 8px;
+    line-height: 1.1;
+  }
+  .attendance-table .attendance-member small {
+    display: none;
+  }
+  .attendance-table th:not(:first-child),
+  .attendance-table td:not(:first-child) {
+    min-width: 0;
+  }
+  .attendance-table .attendance-check {
+    min-width: 0;
+    min-height: 0;
+    font-size: 9px;
+    line-height: 1;
+  }
+  .attendance-table .attendance-check-cell {
+    padding: 2px 0 !important;
+  }
+  .attendance-table th[rowspan="2"]:not(:first-child),
+  .attendance-table td.attendance-worked,
+  .attendance-table td.attendance-target {
+    width: 32px;
+  }
+  .attendance-table .attendance-progress {
+    display: none;
+  }
+  .attendance-table .attendance-worked,
+  .attendance-table .attendance-target {
+    font-size: 8px !important;
+  }
+  .attendance-table thead small {
+    font-size: 7px;
+  }
+  .attendance-footer {
+    gap: 5px;
+    font-size: 9px;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 390px) {
+  .attendance-table th,
+  .attendance-table td {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    font-size: 7px !important;
+  }
+  .attendance-table th:first-child,
+  .attendance-table td:first-child {
+    width: 66px;
+    max-width: 66px;
+  }
+  .attendance-table .attendance-member strong {
+    max-width: 62px;
+    font-size: 7px;
+  }
+  .attendance-table td.attendance-worked,
+  .attendance-table td.attendance-target {
+    width: 27px;
+  }
+}
