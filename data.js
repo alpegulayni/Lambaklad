@@ -9,7 +9,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M001",
     "name": "Ajeck Asilo",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -17,7 +17,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M002",
     "name": "Bombet Escleto",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -25,7 +25,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M003",
     "name": "Argels Acierto",
-    "address": "Looc",
+    "address": null,
     "photo": "assets/argels_acierto.jpg",
     "status": "Active",
     "position": "Member"
@@ -33,7 +33,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M004",
     "name": "Boloy Asilo",
-    "address": "Pasan",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -57,7 +57,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M007",
     "name": "Richard Maris Tinampay",
-    "address": "Looc",
+    "address": null,
     "photo": "assets/richard_maris_tinampay.jpg",
     "status": "Active",
     "position": "Member"
@@ -65,7 +65,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M008",
     "name": "Fulgencio Damasing",
-    "address": "Looc",
+    "address": null,
     "photo": "assets/fulgencio_damasing.jpg",
     "status": "Active",
     "position": "Member"
@@ -73,7 +73,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M009",
     "name": "Samuel Acido",
-    "address": "Looc",
+    "address": null,
     "photo": "assets/samuel_acido.jpg",
     "status": "Active",
     "position": "Member"
@@ -81,7 +81,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M010",
     "name": "Victor Berou",
-    "address": "East Guinacot",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -89,7 +89,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M011",
     "name": "Rene Peligro",
-    "address": "Pasan",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -97,7 +97,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M012",
     "name": "Albano Asilo",
-    "address": "Pasan",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -105,7 +105,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M013",
     "name": "Ruel Tadem",
-    "address": "Looc",
+    "address": null,
     "photo": "assets/ruel_tadem.jpg",
     "status": "Active",
     "position": "Member"
@@ -121,7 +121,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M015",
     "name": "Ronie Ampusta",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -129,7 +129,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M016",
     "name": "Rogelio Datahan",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -137,7 +137,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M017",
     "name": "Henry Acido",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -145,7 +145,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M018",
     "name": "Ronaldo Ampusta",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -153,7 +153,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M019",
     "name": "Homer Jamisola",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -161,7 +161,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M020",
     "name": "Licarl Joseph Amoncio",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -185,7 +185,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M023",
     "name": "Baby Berou",
-    "address": "Manga",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -193,7 +193,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M024",
     "name": "Ben Beruan",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -201,7 +201,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M025",
     "name": "Nardo Manapil",
-    "address": "East Guinacot",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -209,7 +209,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M026",
     "name": "Jayson Sabillaga",
-    "address": "East Guinacot",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -217,7 +217,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M027",
     "name": "Tata Narisma",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -225,7 +225,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M028",
     "name": "Domingo Narisma",
-    "address": "Manga",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -233,7 +233,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M029",
     "name": "Jessie Cuestas",
-    "address": "Manga",
+    "address": null,
     "photo": "assets/jessie_cuestas.jpg",
     "status": "Active",
     "position": "Member"
@@ -241,7 +241,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M030",
     "name": "Edong Jamisola",
-    "address": "Manga",
+    "address": null,
     "photo": "assets/edong_jamisola.jpg",
     "status": "Active",
     "position": "Member"
@@ -249,7 +249,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M031",
     "name": "Restituto Jamisola",
-    "address": "Manga",
+    "address": null,
     "photo": "assets/restituto_jamisola.jpg",
     "status": "Active",
     "position": "Member"
@@ -257,7 +257,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M032",
     "name": "Tata Laga",
-    "address": "Manga",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -265,7 +265,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M033",
     "name": "Edwin Bahian",
-    "address": "East Guinacot",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -273,7 +273,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M034",
     "name": "Ahl Escol",
-    "address": "East Guinacot",
+    "address": null,
     "photo": "assets/ahl_escol.jpg",
     "status": "Active",
     "position": "Member"
@@ -281,7 +281,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M035",
     "name": "Siony Casicas",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -289,7 +289,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M036",
     "name": "Harold Ampusta",
-    "address": "Looc",
+    "address": null,
     "photo": null,
     "status": "Active",
     "position": "Member"

@@ -3,39 +3,21 @@
   const sample = window.GUFA_ATTENDANCE_DATA;
   if (!config?.members || !sample?.records) return;
 
-  const storageKey = "gufa-attendance-v1";
-  const membersKey = "gufa-members-v1";
+  // Read-only view: member and attendance values come directly from JS data files.
+  // No browser storage is read or written.
   const days = Array.from({ length: 7 }, (_, i) => {
     const date = new Date(`${sample.weekStart}T12:00:00`);
     date.setDate(date.getDate() + i);
     return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
   });
   const required = Number(sample.requiredCredits) || 2;
-  let members = config.members.map(member => ({ ...member }));
-  let attendance = JSON.parse(JSON.stringify(sample.records));
-
-  try {
-    const savedMembers = JSON.parse(localStorage.getItem(membersKey) || "null");
-    if (Array.isArray(savedMembers)) {
-      const byId = new Map(savedMembers.map(member => [member.id, member]));
-      members = members.map(member => ({ ...member, ...(byId.get(member.id) || {}) }));
-    }
-  } catch { /* Keep configured masterlist. */ }
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || "null");
-    if (saved?.weekStart === sample.weekStart && saved.records) attendance = saved.records;
-  } catch { /* Keep sample attendance. */ }
-
+  const members = config.members.map(member => ({ ...member }));
+  const attendance = sample.records;
   const tbody = document.getElementById("attendance-table-body");
-  const persist = () => localStorage.setItem(storageKey, JSON.stringify({ weekStart: sample.weekStart, records: attendance }));
   const dateLabel = new Date(`${sample.weekStart}T12:00:00`).toLocaleDateString("en-PH", { month: "long", day: "numeric" }) + "–" + new Date(`${days[6]}T12:00:00`).toLocaleDateString("en-PH", { day: "numeric", year: "numeric" });
   document.getElementById("attendance-week-label").textContent = dateLabel;
 
-  const getDay = (memberId, date) => {
-    attendance[memberId] ||= {};
-    attendance[memberId][date] ||= { morning: false, afternoon: false };
-    return attendance[memberId][date];
-  };
+  const getDay = (memberId, date) => attendance[memberId]?.[date] || { morning: false, afternoon: false };
   const getCredits = memberId => days.reduce((total, date) => {
     const record = getDay(memberId, date);
     return total + (record.morning ? 0.5 : 0) + (record.afternoon ? 0.5 : 0);
@@ -72,13 +54,12 @@
         const record = getDay(member.id, date);
         ["morning", "afternoon"].forEach(session => {
           const cell = document.createElement("td"); cell.className = "attendance-check-cell";
-          const button = document.createElement("button");
-          button.type = "button"; button.className = `attendance-check${record[session] ? " is-present" : ""}`;
-          button.textContent = record[session] ? "✓" : "–";
-          button.setAttribute("aria-label", `${member.name}, ${date}, ${session}: ${record[session] ? "present" : "absent"}`);
-          button.title = `${session === "morning" ? "Morning" : "Afternoon"} · ${date} · 0.5 credit`;
-          button.addEventListener("click", () => { record[session] = !record[session]; persist(); render(); });
-          cell.append(button); row.append(cell);
+          const present = Boolean(record[session]);
+          const value = document.createElement("span");
+          value.className = `attendance-check${present ? " is-present" : ""}`;
+          value.textContent = present ? "✓" : "–";
+          value.setAttribute("aria-label", `${member.name}, ${date}, ${session}: ${present ? "present" : "absent"}`);
+          cell.append(value); row.append(cell);
         });
       });
 

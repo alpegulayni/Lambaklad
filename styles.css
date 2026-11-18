@@ -418,3 +418,90 @@ body {
   .attendance-table-wrap { max-height:calc(100vh - 330px); }
   .attendance-footer { flex-direction:column; gap:4px; }
 }
+
+/* Bootstrap responsive shell and navigation */
+.gufa-navbar{margin:12px 0 2px;padding:8px 0 10px;border-bottom:1px solid #263442;background:transparent}.gufa-navbar .navbar-brand{color:var(--green);font-size:13px;font-weight:850;letter-spacing:.4px}.gufa-navbar .navbar-toggler{border-color:#536273;padding:5px 8px;box-shadow:none}.gufa-navbar .navbar-toggler:focus{box-shadow:0 0 0 2px rgba(69,245,138,.2)}.gufa-nav-link{display:inline-flex;align-items:center;width:fit-content;padding:8px 12px;border:1px solid #354252;border-radius:8px;color:#aab6c4;text-decoration:none;font-size:11px;font-weight:800;transition:background .15s ease,border-color .15s ease}.gufa-nav-link:hover,.gufa-nav-link.active{border-color:#28734b;background:#123d29;color:#45f58a}.gufa-navbar .navbar-collapse{padding-top:6px}.gufa-navbar .navbar-nav{align-items:flex-start}@media(min-width:992px){.gufa-navbar .navbar-collapse{padding-top:0}}@media(max-width:767.98px){body{padding:8px}.schedule-shell{width:100%;padding:12px;border-radius:14px}.site-header{min-height:unset;flex-wrap:wrap;gap:10px;padding-bottom:12px}.site-header h1{position:static;transform:none;width:100%;text-align:left;font-size:clamp(13px,3.5vw,18px);white-space:normal}.association-name{white-space:normal}.schedule-grid{grid-template-columns:1fr}.members-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.members-filters input{grid-column:1/-1}.attendance-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.attendance-tools input{grid-column:1/-1;width:100%}.attendance-key{grid-column:1/-1}.attendance-table-wrap{max-height:65vh;-webkit-overflow-scrolling:touch}.members-table-wrap,.attendance-table-wrap{max-width:100%}}@media(max-width:420px){.schedule-shell{padding:9px}.brand-mark{width:30px;height:30px;flex-basis:30px}.brand-name{font-size:21px}.association-name{font-size:8px}.gufa-nav-link{width:100%}.members-filters,.attendance-tools{grid-template-columns:1fr}.members-filters input,.attendance-tools input,.attendance-key{grid-column:auto}.members-table{min-width:540px}.attendance-footer{font-size:9px}}
+
+
+/* Equal-width header: brand left (50%), page title right (50%).
+   Kept below earlier breakpoints to override centered/stacked header rules. */
+.site-header.row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 0 0 14px;
+}
+.site-header .header-brand-col,
+.site-header .header-title-col {
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
+  min-width: 0;
+}
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.site-header .brand-copy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.site-header .header-title-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+}
+.site-header h1 {
+  position: static;
+  inset: auto;
+  transform: none;
+  margin: 0;
+  width: auto;
+  max-width: 100%;
+  text-align: right;
+  white-space: normal;
+  overflow-wrap: normal;
+  font-size: clamp(14px, 2vw, 21px);
+  line-height: 1.2;
+}
+@media (max-width: 767.98px) {
+  .site-header.row { flex-wrap: nowrap; gap: 0; }
+  .site-header .brand { gap: 7px; }
+  .site-header .brand-copy { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .site-header .association-name { font-size: 9px; white-space: normal; overflow-wrap: anywhere; }
+  .site-header h1 { font-size: clamp(11px, 2.9vw, 17px); text-align: right; }
+}
+@media (max-width: 420px) {
+  .site-header .brand { gap: 5px; }
+  .site-header .brand-mark { width: 27px; height: 27px; flex: 0 0 27px; font-size: 16px; }
+  .site-header .brand-name { font-size: 20px; }
+  .site-header .association-name { font-size: 8px; line-height: 1.15; }
+  .site-header h1 { font-size: 11px; }
+}
+
+/* Unified GUFA dropdown navigation */
+.gufa-menu-nav{display:flex;justify-content:flex-end;align-items:center;position:relative;z-index:20;min-height:48px;margin:10px 0 4px;padding:4px 0 10px;border-bottom:1px solid #263442}
+.gufa-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:42px;height:38px;padding:0;border:1px solid #536273;border-radius:8px;background:#17212c;color:#e8eef5;box-shadow:none}
+.gufa-menu-toggle::after{display:none}
+.gufa-menu-toggle:hover,.gufa-menu-toggle:focus,.gufa-menu-toggle[aria-expanded=true]{border-color:#45f58a;background:#123d29;color:#45f58a;box-shadow:0 0 0 2px rgba(69,245,138,.12)}
+.gufa-menu-icon{display:flex;flex-direction:column;gap:4px;width:18px}
+.gufa-menu-icon span{display:block;width:18px;height:2px;border-radius:2px;background:currentColor}
+.gufa-dropdown-menu{min-width:220px;margin-top:8px!important;padding:6px;border:1px solid #354252;border-radius:10px;background:#111a24;box-shadow:0 12px 28px rgba(0,0,0,.38)}
+.gufa-dropdown-menu .dropdown-item{display:flex;align-items:center;width:100%;min-height:42px;padding:10px 12px;border-radius:6px;color:#c5cfda;font-size:12px;font-weight:750;white-space:nowrap}
+.gufa-dropdown-menu .dropdown-item:hover,.gufa-dropdown-menu .dropdown-item:focus{background:#1d2b38;color:#45f58a}
+.gufa-dropdown-menu .dropdown-item.active,.gufa-dropdown-menu .dropdown-item:active{background:#123d29;color:#45f58a}
+@media(max-width:575.98px){.gufa-menu-nav{margin-top:8px}.gufa-dropdown-menu{min-width:min(220px,calc(100vw - 36px))}}
+
+/* Read-only table presentation */
+.member-status-label{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid #354252;border-radius:999px;font-size:10px;font-weight:800;color:#b8c4d0;background:#182330}
+.member-status-label.active{border-color:#28734b;color:#45f58a;background:#123d29}
+.member-status-label.inactive{border-color:#66505a;color:#d8aab5;background:#35232b}
+.attendance-check{display:inline-flex;align-items:center;justify-content:center;min-width:22px;min-height:22px;font-weight:900;user-select:text;cursor:default}
+.attendance-check.is-present{color:#45f58a}
