@@ -8,7 +8,7 @@ window.GUFA_SCHEDULE = {
   members: [
   {
     "id": "M001",
-    "name": "Ajeck Asilo",
+    "name": "Rosalito Asilo",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -16,8 +16,8 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M002",
-    "name": "Bombet Escleto",
-    "address": null,
+    "name": "Fernando Escleto",
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -25,14 +25,14 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M003",
     "name": "Argels Acierto",
-    "address": null,
+    "address": "Looc",
     "photo": "assets/argels_acierto.jpg",
     "status": "Active",
     "position": "Member"
   },
   {
     "id": "M004",
-    "name": "Boloy Asilo",
+    "name": "Lugresio Asilo",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -72,7 +72,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M009",
-    "name": "Samuel Acido",
+    "name": "Samuel Acedo",
     "address": null,
     "photo": "assets/samuel_acido.jpg",
     "status": "Active",
@@ -121,7 +121,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M015",
     "name": "Ronie Ampusta",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -129,7 +129,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M016",
     "name": "Rogelio Datahan",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -137,14 +137,14 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M017",
     "name": "Henry Acido",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
   },
   {
     "id": "M018",
-    "name": "Ronaldo Ampusta",
+    "name": "Ronald Ampusta",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -168,7 +168,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M021",
-    "name": "Jonrey Bersabal",
+    "name": "Junry A. Bersabal",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -184,7 +184,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M023",
-    "name": "Baby Berou",
+    "name": "Gabriel Berou",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -192,7 +192,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M024",
-    "name": "Ben Beruan",
+    "name": "Benedict Beruan",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -200,7 +200,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M025",
-    "name": "Nardo Manapil",
+    "name": "Menardo Manapil",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -256,7 +256,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M032",
-    "name": "Tata Laga",
+    "name": "Eugenio Laga",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -272,15 +272,15 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M034",
-    "name": "Ahl Escol",
-    "address": null,
+    "name": "Alejandro Escol",
+    "address": "Masayag",
     "photo": "assets/ahl_escol.jpg",
     "status": "Active",
     "position": "Member"
   },
   {
     "id": "M035",
-    "name": "Siony Casicas",
+    "name": "Constancio Casicas",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -288,7 +288,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M036",
-    "name": "Harold Ampusta",
+    "name": "Naro Ampusta",
     "address": null,
     "photo": null,
     "status": "Active",
@@ -298,6 +298,190 @@ window.GUFA_SCHEDULE = {
     "id": "M037",
     "name": "Yves Ampusta",
     "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M038",
+    "name": "Serapion Amoncio",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M039",
+    "name": "Noel Amoncio",
+    "address": "Manga",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M040",
+    "name": "Jessie Amprinto",
+    "address": null,
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M041",
+    "name": "Jessie Amprinto",
+    "address": null,
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M042",
+    "name": "Jessie Amprinto",
+    "address": null,
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M043",
+    "name": "Randy Ampusta",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M044",
+    "name": "Rolando Ampusta",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M045",
+    "name": "Joelito P. Antipuesto",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M046",
+    "name": "Francisco Asilo",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M047",
+    "name": "Agaton Asilo",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M048",
+    "name": "Reynaldo Cachapero",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M049",
+    "name": "Marlon Casicas",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M050",
+    "name": "William Delig",
+    "address": "Tawid Pasan",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M051",
+    "name": "Albert Diez",
+    "address": null,
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M052",
+    "name": "Roman Escol",
+    "address": "Manga",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M053",
+    "name": "Lucino Galabo",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M054",
+    "name": "Saturnino Jamisola",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M055",
+    "name": "Necomedes Macabasag",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M056",
+    "name": "Necomedes Macabasag",
+    "address": "Looc",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M057",
+    "name": "Michael Manapil",
+    "address": "Masayag",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M058",
+    "name": "Michael Manapil",
+    "address": "Masayag",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M059",
+    "name": "Baby Narisma",
+    "address": "Manga",
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M060",
+    "name": "Balong Segobia",
+    "address": "East Guinacot",
     "photo": null,
     "status": "Active",
     "position": "Member"
