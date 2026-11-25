@@ -33,7 +33,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M004",
     "name": "Lugresio Asilo",
-    "address": null,
+    "address": "Pasan",
     "photo": null,
     "status": "Active",
     "position": "Member"
