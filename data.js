@@ -153,7 +153,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M019",
     "name": "Homer Jamisola",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -161,7 +161,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M020",
     "name": "Licarl Joseph Amoncio",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -185,7 +185,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M023",
     "name": "Gabriel Berou",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -193,7 +193,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M024",
     "name": "Benedict Beruan",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -201,7 +201,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M025",
     "name": "Menardo Manapil",
-    "address": null,
+    "address": "Masayag",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -209,7 +209,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M026",
     "name": "Jayson Sabillaga",
-    "address": null,
+    "address": "East Guinacot",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -217,7 +217,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M027",
     "name": "Tata Narisma",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -225,7 +225,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M028",
     "name": "Domingo Narisma",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -233,15 +233,15 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M029",
     "name": "Jessie Cuestas",
-    "address": null,
+    "address": "Manga",
     "photo": "assets/jessie_cuestas.jpg",
     "status": "Active",
     "position": "Member"
   },
   {
     "id": "M030",
-    "name": "Edong Jamisola",
-    "address": null,
+    "name": "Eduardo Jamisola",
+    "address": "Manga",
     "photo": "assets/edong_jamisola.jpg",
     "status": "Active",
     "position": "Member"
@@ -249,7 +249,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M031",
     "name": "Restituto Jamisola",
-    "address": null,
+    "address": "Manga",
     "photo": "assets/restituto_jamisola.jpg",
     "status": "Active",
     "position": "Member"
@@ -257,7 +257,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M032",
     "name": "Eugenio Laga",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -281,7 +281,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M035",
     "name": "Constancio Casicas",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -289,7 +289,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M036",
     "name": "Naro Ampusta",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -448,12 +448,12 @@ window.GUFA_SCHEDULE = {
   }, 
   {
     "id": "M056",
-    "name": "Necomedes Macabasag",
-    "address": "Looc",
+    "name": "Ronel Narisma",
+    "address": "Manga",
     "photo": null,
-    "status": "Active",
+    "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M057",
     "name": "Michael Manapil",
@@ -464,12 +464,12 @@ window.GUFA_SCHEDULE = {
   }, 
   {
     "id": "M058",
-    "name": "Michael Manapil",
-    "address": "Masayag",
+    "name": "Ismael Cachapero",
+    "address": "Manga",
     "photo": null,
-    "status": "Active",
+    "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M059",
     "name": "Baby Narisma",
@@ -754,22 +754,6 @@ window.GUFA_SCHEDULE = {
     "id": "M094",
     "name": "Natividad Berou",
     "address": "Looc",
-    "photo": null,
-    "status": "Suspended",
-    "position": "Member"
-  }, 
-  {
-    "id": "M095",
-    "name": "Ismael Cachapero",
-    "address": "Manga",
-    "photo": null,
-    "status": "Suspended",
-    "position": "Member"
-  }, 
-  {
-    "id": "M096",
-    "name": "Ronel Narisma",
-    "address": "Manga",
     "photo": null,
     "status": "Suspended",
     "position": "Member"
