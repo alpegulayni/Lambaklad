@@ -24,7 +24,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M003",
-    "name": "Argels Acierto",
+    "name": "Archangel V. Acierto",
     "address": "Looc",
     "photo": "assets/argels_acierto.jpg",
     "status": "Active",
@@ -40,7 +40,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M005",
-    "name": "Along Amoncio",
+    "name": "Anthony Amoncio",
     "address": "Looc",
     "photo": "assets/along_amoncio.png",
     "status": "Active",
@@ -57,7 +57,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M007",
     "name": "Richard Maris Tinampay",
-    "address": null,
+    "address": "Looc",
     "photo": "assets/richard_maris_tinampay.jpg",
     "status": "Active",
     "position": "Member"
@@ -65,7 +65,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M008",
     "name": "Fulgencio Damasing",
-    "address": null,
+    "address": "Looc",
     "photo": "assets/fulgencio_damasing.jpg",
     "status": "Active",
     "position": "Member"
@@ -73,7 +73,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M009",
     "name": "Samuel Acedo",
-    "address": null,
+    "address": "Looc",
     "photo": "assets/samuel_acido.jpg",
     "status": "Active",
     "position": "Member"
@@ -81,7 +81,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M010",
     "name": "Victor Berou",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -89,7 +89,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M011",
     "name": "Rene Peligro",
-    "address": null,
+    "address": "Tawid Pasan",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -97,7 +97,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M012",
     "name": "Albano Asilo",
-    "address": null,
+    "address": "Tawid Pasan",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -105,7 +105,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M013",
     "name": "Ruel Tadem",
-    "address": null,
+    "address": "Looc",
     "photo": "assets/ruel_tadem.jpg",
     "status": "Active",
     "position": "Member"
@@ -113,7 +113,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M014",
     "name": "Ronel Narisma",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -145,7 +145,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M018",
     "name": "Ronald Ampusta",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
