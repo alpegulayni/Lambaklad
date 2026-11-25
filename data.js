@@ -9,7 +9,7 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M001",
     "name": "Rosalito Asilo",
-    "address": null,
+    "address": "Looc",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -328,18 +328,18 @@ window.GUFA_SCHEDULE = {
   }, 
   {
     "id": "M041",
-    "name": "Jessie Amprinto",
-    "address": null,
+    "name": "Domingo Ampusta",
+    "address": "Looc",
     "photo": null,
-    "status": "Active",
+    "status": "Suspended",
     "position": "Member"
   }, 
   {
     "id": "M042",
-    "name": "Jessie Amprinto",
+    "name": "Jaime Aligado",
     "address": null,
     "photo": null,
-    "status": "Active",
+    "status": "Suspended",
     "position": "Member"
   }, 
   {
@@ -484,6 +484,166 @@ window.GUFA_SCHEDULE = {
     "address": "East Guinacot",
     "photo": null,
     "status": "Active",
+    "position": "Member"
+  }, 
+  {
+    "id": "M061",
+    "name": "Sulpicio Asilo",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M062",
+    "name": "Chris John Aton",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M063",
+    "name": "Bonifacio Auxtero",
+    "address": "Pasan",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M064",
+    "name": "Erwin Bahian",
+    "address": "Masayag",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M065",
+    "name": "Hercolana Baslot",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M066",
+    "name": "Epimaco Berou",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M067",
+    "name": "Jovito Bersaluna",
+    "address": "Pasan",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M068",
+    "name": "Jhon Earl Bersaluna",
+    "address": "Pasan",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M069",
+    "name": "Cesar Cadorna",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M070",
+    "name": "Benjamin Castulo",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M071",
+    "name": " Randel Dahan",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M072",
+    "name": "Frimo Dela Cruz",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M073",
+    "name": "Frincez Kaye Dela Peña",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M074",
+    "name": "Hilario Escleto",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M075",
+    "name": "Dino Farba",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M076",
+    "name": "Renato Gultiano",
+    "address": "Manga",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M077",
+    "name": "Jorge Jamisola",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M078",
+    "name": "Michael Jamisola",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M079",
+    "name": "Edgardo Jamisola",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M080",
+    "name": "Wilfredo A. Manapil",
+    "address": "Manga",
+    "photo": null,
+    "status": "Suspended",
     "position": "Member"
   }
 ],

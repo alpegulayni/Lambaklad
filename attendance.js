@@ -30,14 +30,14 @@
     const filtered = members.filter(member => member.name.toLowerCase().includes(query) && (status === "All" || member.status === status) && (address === "All" || (address === "Unassigned" ? !member.address : member.address === address)));
     const filteredCount = filtered.length;
     const activeFilteredCount = filtered.filter(member => member.status === "Active").length;
-    const inactiveFilteredCount = filteredCount - activeFilteredCount;
+    const suspendedFilteredCount = filteredCount - activeFilteredCount;
     document.getElementById("attendance-summary").textContent =
-      `${filteredCount} member${filteredCount === 1 ? "" : "s"} shown · ${activeFilteredCount} active · ${inactiveFilteredCount} inactive · ${required.toFixed(1)} credit target`;
+      `${filteredCount} member${filteredCount === 1 ? "" : "s"} shown · ${activeFilteredCount} active · ${suspendedFilteredCount} suspended · ${required.toFixed(1)} credit target`;
     tbody.replaceChildren();
 
     filtered.forEach(member => {
       const row = document.createElement("tr");
-      if (member.status === "Inactive") row.classList.add("attendance-inactive");
+      if (member.status === "Suspended") row.classList.add("attendance-suspended");
       const identity = document.createElement("td"); identity.className = "attendance-member";
       if (member.photo) {
         const img = document.createElement("img"); img.src = member.photo; img.alt = ""; img.onerror = () => img.remove(); identity.append(img);

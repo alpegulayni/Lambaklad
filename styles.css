@@ -406,7 +406,7 @@ body {
 .attendance-target strong { display:block; color:#45f58a; font-size:10px; }
 .attendance-progress { display:block; width:48px; height:4px; margin:4px auto 0; overflow:hidden; border-radius:5px; background:#293746; }
 .attendance-progress i { display:block; height:100%; border-radius:5px; background:#36d879; }
-.attendance-inactive { opacity:.48; }
+.attendance-suspended { opacity:.48; }
 .attendance-footer { display:flex; justify-content:space-between; gap:12px; margin-top:10px; color:#8b9aaa; font-size:10px; }
 .attendance-footer strong { color:#e6edf5; }
 @media (max-width:640px) {
@@ -502,7 +502,7 @@ body {
 /* Read-only table presentation */
 .member-status-label{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid #354252;border-radius:999px;font-size:10px;font-weight:800;color:#b8c4d0;background:#182330}
 .member-status-label.active{border-color:#28734b;color:#45f58a;background:#123d29}
-.member-status-label.inactive{border-color:#66505a;color:#d8aab5;background:#35232b}
+.member-status-label.suspended{border-color:#66505a;color:#d8aab5;background:#35232b}
 .attendance-check{display:inline-flex;align-items:center;justify-content:center;min-width:22px;min-height:22px;font-weight:900;user-select:text;cursor:default}
 .attendance-check.is-present{color:#45f58a}
 
@@ -757,10 +757,10 @@ body {
   .attendance-table .attendance-progress {
     display: none !important;
   }
-  .attendance-table .attendance-inactive td {
+  .attendance-table .attendance-suspended td {
     opacity: .48;
   }
-  .attendance-table .attendance-inactive .attendance-member {
+  .attendance-table .attendance-suspended .attendance-member {
     opacity: .65;
   }
   .attendance-footer {
