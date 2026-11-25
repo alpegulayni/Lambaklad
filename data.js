@@ -641,6 +641,134 @@ window.GUFA_SCHEDULE = {
   {
     "id": "M080",
     "name": "Wilfredo A. Manapil",
+    "address": "Masayag",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M081",
+    "name": "Sylvio Mapang",
+    "address": "East Guinacot",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M082",
+    "name": "Dennis Molina",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M083",
+    "name": "Roland Narisma",
+    "address": "Manga",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M084",
+    "name": "Vicente J. Olier",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M085",
+    "name": "Nino Reyes",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M086",
+    "name": "Junmar Sueman",
+    "address": "Manga",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M087",
+    "name": "Joevan Sumagang",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M088",
+    "name": "Noel Amoguis",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M089",
+    "name": "Niel Amoguis",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M090",
+    "name": "Edwin Bahian",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M091",
+    "name": "Jonathan Bahian",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M092",
+    "name": "Fernando Balasabas",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M093",
+    "name": "Engelbert Berou",
+    "address": null,
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M094",
+    "name": "Natividad Berou",
+    "address": "Looc",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M095",
+    "name": "Ismael Cachapero",
+    "address": "Manga",
+    "photo": null,
+    "status": "Suspended",
+    "position": "Member"
+  }, 
+  {
+    "id": "M096",
+    "name": "Ronel Narisma",
     "address": "Manga",
     "photo": null,
     "status": "Suspended",
