@@ -28,26 +28,24 @@
     status: document.getElementById("member-status-filter"),
     address: document.getElementById("member-address-filter")
   };
-  const allowedValues = key => key === "q" ? null : new Set(Array.from(filterControls[key].options, option => option.value));
+  const checkedValues = key => Array.from(filterControls[key].querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
   const readFiltersFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
-    Object.entries(filterControls).forEach(([key, control]) => {
-      if (!control) return;
-      const value = params.get(key);
-      if (value === null) return;
-      if (key === "q" || allowedValues(key).has(value)) control.value = value;
+    if (filterControls.q) filterControls.q.value = params.get("q") || "";
+    ["status", "address"].forEach(key => {
+      const selected = new Set((params.get(key) || "").split(",").filter(Boolean));
+      filterControls[key]?.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = selected.has(input.value); });
     });
   };
   const syncFiltersToUrl = () => {
     const url = new URL(window.location.href);
     const values = {
       q: filterControls.q?.value.trim() || "",
-      status: filterControls.status?.value || "All",
-      address: filterControls.address?.value || "All"
+      status: checkedValues("status").join(","),
+      address: checkedValues("address").join(",")
     };
     Object.entries(values).forEach(([key, value]) => {
-      const defaultValue = key === "q" ? "" : "All";
-      if (value === defaultValue) url.searchParams.delete(key);
+      if (!value) url.searchParams.delete(key);
       else url.searchParams.set(key, value);
     });
     window.history.replaceState({}, "", url.pathname + url.search + url.hash);
@@ -59,12 +57,12 @@
   const render = () => {
     syncFiltersToUrl();
     const query = document.getElementById("member-search").value.trim().toLowerCase();
-    const statusFilter = document.getElementById("member-status-filter").value;
-    const addressFilter = document.getElementById("member-address-filter").value;
+    const statusFilters = checkedValues("status");
+    const addressFilters = checkedValues("address");
     const filtered = members.filter(member =>
       `${member.firstName || ""} ${member.lastName || ""}`.toLowerCase().includes(query) &&
-      (statusFilter === "All" || member.status === statusFilter) &&
-      (addressFilter === "All" || (addressFilter === "Unassigned" ? !member.address : member.address === addressFilter))
+      (!statusFilters.length || statusFilters.includes(member.status || "Active")) &&
+      (!addressFilters.length || addressFilters.some(value => value === "Unassigned" ? !member.address : member.address === value))
     );
     filtered.sort((a,b) => {
       const av = a[sortKey] || "";
@@ -95,8 +93,13 @@
       const statusIcon = document.createElement("span");
       statusIcon.className = "member-status-icon";
       statusIcon.setAttribute("aria-hidden", "true");
-      const iconByStatus = { active: "▶", suspended: "Ⅱ", inactive: "■" };
-      statusIcon.textContent = iconByStatus[normalizedStatus] || iconByStatus.active;
+      const iconByStatus = { active: "▶", inactive: "■" };
+      if (normalizedStatus === "suspended") {
+        statusIcon.classList.add("suspended-bars");
+        statusIcon.innerHTML = '<span></span><span></span>';
+      } else {
+        statusIcon.textContent = iconByStatus[normalizedStatus] || iconByStatus.active;
+      }
       const statusText = document.createElement("span");
       statusText.textContent = member.status || "Active";
       statusLabel.append(statusIcon, statusText);
@@ -145,9 +148,10 @@
     });
   });
 
-  ["member-search", "member-status-filter", "member-address-filter"].forEach(id => {
-    const control = document.getElementById(id);
-    if (control) control.addEventListener(id === "member-search" ? "input" : "change", render);
+  const searchControl = document.getElementById("member-search");
+  if (searchControl) searchControl.addEventListener("input", render);
+  ["member-status-filter", "member-address-filter"].forEach(id => {
+    document.getElementById(id)?.addEventListener("change", render);
   });
   window.addEventListener("popstate", () => {
     readFiltersFromUrl();

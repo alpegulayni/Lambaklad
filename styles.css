@@ -1184,3 +1184,35 @@ body {
   width: 104px;
   height: 27px;
 }
+
+/* Multi-select member filters */
+.members-filters { grid-template-columns:minmax(180px,1fr) minmax(230px,1fr) minmax(300px,1.5fr); align-items:stretch; }
+.member-filter-group { min-width:0; margin:0; padding:7px 10px 9px; border:1px solid #354252; border-radius:8px; background:#171e27; color:#e2e8f0; display:flex; flex-wrap:wrap; align-content:flex-start; gap:7px 13px; }
+.member-filter-group legend { padding:0 5px; color:#aab8c8; font-size:10px; font-weight:800; letter-spacing:.35px; }
+.member-filter-group label { display:inline-flex; align-items:center; gap:5px; margin:0; color:#e2e8f0; font-size:10px; white-space:nowrap; cursor:pointer; }
+.member-filter-group input[type="checkbox"] { width:13px; height:13px; margin:0; accent-color:#38bdf8; cursor:pointer; }
+@media (max-width: 900px) { .members-filters { grid-template-columns:1fr 1fr; } .members-filters input[type="search"] { grid-column:1 / -1; } }
+@media (max-width: 560px) { .members-filters { grid-template-columns:1fr; } }
+
+/* Explicitly suppress the legacy suspended-status dot. */
+.member-status-label.suspended::before { content: "" !important; display: none !important; }
+
+/* Suspended icon: two plain vertical pause bars, drawn with CSS (no serif/cap lines). */
+.member-status-icon.suspended-bars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 12px;
+  height: 14px;
+  font-size: 0;
+  line-height: 0;
+}
+.member-status-icon.suspended-bars span {
+  display: block;
+  width: 3px;
+  height: 12px;
+  background: currentColor;
+  border: 0;
+  border-radius: 0;
+}

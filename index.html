@@ -54,12 +54,21 @@
       </div>
       <div class="members-filters">
         <input id="member-search" type="search" placeholder="Search member name..." aria-label="Search members">
-        <select id="member-status-filter" aria-label="Filter by status">
-          <option value="All">All statuses</option><option value="Active">Active</option><option value="Suspended">Suspended</option><option value="Inactive">Inactive</option>
-        </select>
-        <select id="member-address-filter" aria-label="Filter by address">
-          <option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Tawid Pasan">Tawid Pasan</option><option value="Unassigned">Unassigned</option>
-        </select>
+        <fieldset class="member-filter-group" id="member-status-filter" aria-label="Filter by status">
+          <legend>Status</legend>
+          <label><input type="checkbox" value="Active"> Active</label>
+          <label><input type="checkbox" value="Suspended"> Suspended</label>
+          <label><input type="checkbox" value="Inactive"> Inactive</label>
+        </fieldset>
+        <fieldset class="member-filter-group" id="member-address-filter" aria-label="Filter by address">
+          <legend>Address</legend>
+          <label><input type="checkbox" value="Looc"> Looc</label>
+          <label><input type="checkbox" value="Pasan"> Pasan</label>
+          <label><input type="checkbox" value="Manga"> Manga</label>
+          <label><input type="checkbox" value="East Guinacot"> East Guinacot</label>
+          <label><input type="checkbox" value="Tawid Pasan"> Tawid Pasan</label>
+          <label><input type="checkbox" value="Unassigned"> Unassigned</label>
+        </fieldset>
       </div>
       <div class="members-table-wrap">
         <table class="members-table">
