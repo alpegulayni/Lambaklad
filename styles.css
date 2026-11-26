@@ -1086,3 +1086,19 @@ body {
   outline: 2px solid #4b91d1;
   outline-offset: -2px;
 }
+
+
+/* Attendance table header: square corners; Worked/Penalty rows separated subtly. */
+.attendance-table thead th,
+.attendance-table thead th:first-child,
+.attendance-table thead th:last-child {
+  border-radius: 0 !important;
+}
+.attendance-table tbody td.attendance-worked,
+.attendance-table tbody td.attendance-penalty {
+  border-bottom: 1px solid var(--border-color, rgba(128, 138, 150, 0.22)) !important;
+}
+.attendance-table tbody tr:last-child td.attendance-worked,
+.attendance-table tbody tr:last-child td.attendance-penalty {
+  border-bottom: 0 !important;
+}
