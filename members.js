@@ -62,7 +62,9 @@
       statusLabel.className = `member-status-label ${(member.status || "Active").toLowerCase()}`;
       statusLabel.textContent = member.status || "Active";
       status.append(statusLabel);
-      row.append(lastName, firstName, address, position, status);
+      firstName.className = "member-name-col fname-col";
+      lastName.className = "member-name-col lname-col";
+      row.append(lastName, firstName, address, status, position);
       tbody.append(row);
     });
   };

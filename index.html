@@ -28,7 +28,7 @@
       <div class="col-6 header-title-col">
         <h1 id="page-title">👥 MEMBER MASTERLIST</h1>
       </div>
-      <nav class="gufa-menu-nav" aria-label="GUFA pages"><div class="dropdown"><button class="gufa-menu-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open navigation menu"><span class="gufa-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button><ul class="dropdown-menu dropdown-menu-end gufa-dropdown-menu"><li><a class="dropdown-item active" href="schedule/" >Bantay Schedule</a></li><li><a class="dropdown-item" href="./" aria-current="page">Member Masterlist</a></li><li><a class="dropdown-item" href="attendance/">Attendance</a></li></ul></div></nav>
+      <nav class="gufa-menu-nav" aria-label="GUFA pages"><div class="dropdown"><button class="gufa-menu-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open navigation menu"><span class="gufa-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button><ul class="dropdown-menu dropdown-menu-end gufa-dropdown-menu"><li><a class="dropdown-item active" href="./" aria-current="page">Member Masterlist</a></li><li><a class="dropdown-item" href="schedule/">Bantay Schedule</a></li><li><a class="dropdown-item" href="attendance/">Attendance</a></li></ul></div></nav>
     </header>
 
 
@@ -51,11 +51,11 @@
       <div class="members-table-wrap">
         <table class="members-table">
           <thead><tr>
-            <th><button type="button" class="column-sort" data-member-sort="lastName">Last Name <span class="sort-indicator">↕</span></button></th>
-            <th><button type="button" class="column-sort" data-member-sort="firstName">First Name <span class="sort-indicator">↕</span></button></th>
+            <th class="member-name-col lname-col"><button type="button" class="column-sort" data-member-sort="lastName">LNAME <span class="sort-indicator">↕</span></button></th>
+            <th class="member-name-col fname-col"><button type="button" class="column-sort" data-member-sort="firstName">FNAME <span class="sort-indicator">↕</span></button></th>
             <th><button type="button" class="column-sort" data-member-sort="address">Address <span class="sort-indicator">↕</span></button></th>
-            <th><button type="button" class="column-sort" data-member-sort="position">Position <span class="sort-indicator">↕</span></button></th>
             <th><button type="button" class="column-sort" data-member-sort="status">Status <span class="sort-indicator">↕</span></button></th>
+            <th><button type="button" class="column-sort" data-member-sort="position">Position <span class="sort-indicator">↕</span></button></th>
           </tr></thead>
           <tbody id="members-table-body"></tbody>
         </table>
