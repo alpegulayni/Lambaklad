@@ -656,8 +656,8 @@ window.GUFA_SCHEDULE = {
   }, 
   {
     "id": "M073",
-    "firstName": "Frincez Kaye Dela",
-    "lastName": "Peña",
+    "firstName": "Frincez Kaye",
+    "lastName": "Dela Peña",
     "address": "Looc",
     "photo": null,
     "status": "Suspended",

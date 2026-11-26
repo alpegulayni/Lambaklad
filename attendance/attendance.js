@@ -76,19 +76,11 @@
       const tr=document.createElement("tr");
       if(member.status==="Suspended") tr.classList.add("attendance-suspended");
       if(member.status==="Inactive") tr.classList.add("attendance-inactive");
-      const identity=document.createElement("td"); identity.className="attendance-member";
-      if(member.photo){
-        const img=document.createElement("img");
-        // Member photos live in the root /assets folder; this page is one level deeper.
-        img.src = member.photo.startsWith("assets/") ? `../${member.photo}` : member.photo;
-        img.alt="";
-        img.onerror=()=>img.remove();
-        identity.append(img);
-      }
-      else {const initials=document.createElement("span");initials.className="member-initials";initials.textContent=fullName(member).split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();identity.append(initials);}
-      const wrap=document.createElement("span"), name=document.createElement("strong");name.textContent=fullName(member);wrap.append(name);
-      if(member.position && member.position!=="Member"){const p=document.createElement("small");p.textContent=member.position;wrap.append(p);}
-      identity.append(wrap);tr.append(identity);
+      const first=document.createElement("td");first.className="attendance-name-cell";first.textContent=member.firstName || "";tr.append(first);
+      const last=document.createElement("td");last.className="attendance-name-cell";last.textContent=member.lastName || "";tr.append(last);
+      const statusCell=document.createElement("td");statusCell.className="attendance-status-cell";
+      const statusBadge=document.createElement("span");statusBadge.className=`attendance-status-badge status-${String(member.status || "unknown").toLowerCase()}`;statusBadge.textContent=member.status || "—";
+      statusCell.append(statusBadge);tr.append(statusCell);
       dates.forEach(date=>{
         const td=document.createElement("td");td.className="attendance-check-cell";
         const present=Boolean(attendance[member.id]?.[date]), mark=document.createElement("span");
@@ -97,9 +89,11 @@
         td.append(mark);tr.append(td);
       });
       const daysWorked=worked(member.id);
-      const total=document.createElement("td");total.className="attendance-worked";total.textContent=String(daysWorked);tr.append(total);
+      const total=document.createElement("td");total.className="attendance-worked";
+      const workedBadge=document.createElement("span");workedBadge.className="attendance-worked-value";workedBadge.textContent=String(daysWorked);total.append(workedBadge);tr.append(total);
       const penalty=document.createElement("td");penalty.className="attendance-penalty";
-      penalty.textContent=`₱${getPenalty(member.id).toLocaleString("en-PH")}`;tr.append(penalty);
+      const penaltyValue=document.createElement("span");penaltyValue.className="attendance-penalty-value";
+      penaltyValue.textContent=`₱${getPenalty(member.id).toLocaleString("en-PH")}`;penalty.append(penaltyValue);tr.append(penalty);
       tbody.append(tr);
     });
   };
@@ -122,7 +116,8 @@
     });
     const thead=document.querySelector(".attendance-table thead"), tr=document.createElement("tr");tr.className="day-heading";
     const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
-    addSort("Member","member");
+    const addPlain=(label)=>{const th=document.createElement("th");th.textContent=label;tr.append(th);};
+    addSort("First Name","member");addPlain("Last Name");addPlain("Status");
     dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.textContent=`${d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()} ${d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase()}`;tr.append(th);});
     addSort("Worked","worked");addSort("Penalty","penalty");thead.replaceChildren(tr);
     thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));

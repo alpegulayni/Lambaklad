@@ -29,7 +29,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Archangel V.",
     "lastName": "Acierto",
     "address": "Looc",
-    "photo": "../assets/argels_acierto.jpg",
+    "photo": "assets/argels_acierto.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -47,7 +47,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Anthony",
     "lastName": "Amoncio",
     "address": "Looc",
-    "photo": "../assets/along_amoncio.png",
+    "photo": "assets/along_amoncio.png",
     "status": "Active",
     "position": "Member"
   },
@@ -56,7 +56,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Nonon",
     "lastName": "Gulay",
     "address": "Looc",
-    "photo": "../assets/nonon_gulay.jpg",
+    "photo": "assets/nonon_gulay.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -65,7 +65,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Richard Maris",
     "lastName": "Tinampay",
     "address": "Looc",
-    "photo": "../assets/richard_maris_tinampay.jpg",
+    "photo": "assets/richard_maris_tinampay.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -74,7 +74,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Fulgencio",
     "lastName": "Damasing",
     "address": "Looc",
-    "photo": "../assets/fulgencio_damasing.jpg",
+    "photo": "assets/fulgencio_damasing.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -83,7 +83,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Samuel",
     "lastName": "Acedo",
     "address": "Looc",
-    "photo": "../assets/samuel_acido.jpg",
+    "photo": "assets/samuel_acido.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -119,7 +119,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Ruel",
     "lastName": "Tadem",
     "address": "Looc",
-    "photo": "../assets/ruel_tadem.jpg",
+    "photo": "assets/ruel_tadem.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -263,7 +263,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Jessie",
     "lastName": "Cuestas",
     "address": "Manga",
-    "photo": "../assets/jessie_cuestas.jpg",
+    "photo": "assets/jessie_cuestas.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -272,7 +272,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Eduardo",
     "lastName": "Jamisola",
     "address": "Manga",
-    "photo": "../assets/edong_jamisola.jpg",
+    "photo": "assets/edong_jamisola.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -281,7 +281,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Restituto",
     "lastName": "Jamisola",
     "address": "Manga",
-    "photo": "../assets/restituto_jamisola.jpg",
+    "photo": "assets/restituto_jamisola.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -308,7 +308,7 @@ window.GUFA_SCHEDULE = {
     "firstName": "Alejandro",
     "lastName": "Escol",
     "address": "Masayag",
-    "photo": "../assets/ahl_escol.jpg",
+    "photo": "assets/ahl_escol.jpg",
     "status": "Active",
     "position": "Member"
   },
@@ -656,8 +656,8 @@ window.GUFA_SCHEDULE = {
   }, 
   {
     "id": "M073",
-    "firstName": "Frincez Kaye Dela",
-    "lastName": "Peña",
+    "firstName": "Frincez Kaye",
+    "lastName": "Dela Peña",
     "address": "Looc",
     "photo": null,
     "status": "Suspended",
