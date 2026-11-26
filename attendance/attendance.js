@@ -8,7 +8,7 @@
     address: document.getElementById("attendance-address-filter")
   };
   let members = [], dates = [], attendance = {};
-  let sortKey = "lastName", sortDirection = "asc";
+  let sortKey = "name", sortDirection = "asc";
   const ABSENCE_PENALTY = 600;
   // Set each attendance date to "whole" or "half".
   // Whole-day absence = ₱600; half-day absence = ₱300.
@@ -21,6 +21,7 @@
     ? ABSENCE_PENALTY * 0.5
     : ABSENCE_PENALTY;
   const fullName = m => [m.firstName, m.lastName].filter(Boolean).join(" ");
+  const displayName = m => [m.lastName, m.firstName].filter(Boolean).join(", ");
   const readFilters = () => {
     const params = new URLSearchParams(location.search);
     Object.entries(controls).forEach(([key, control]) => {
@@ -61,8 +62,8 @@
       (status==="All" || m.status===status) &&
       (address==="All" || (address==="Unassigned" ? !m.address : m.address===address)));
     filtered.sort((a,b)=>{
-      const av=sortKey==="lastName"?(a.lastName||""):sortKey==="firstName"?(a.firstName||""):sortKey==="worked"?worked(a.id):getPenalty(a.id);
-      const bv=sortKey==="lastName"?(b.lastName||""):sortKey==="firstName"?(b.firstName||""):sortKey==="worked"?worked(b.id):getPenalty(b.id);
+      const av=sortKey==="name"?`${a.lastName||""}, ${a.firstName||""}`:sortKey==="worked"?worked(a.id):getPenalty(a.id);
+      const bv=sortKey==="name"?`${b.lastName||""}, ${b.firstName||""}`:sortKey==="worked"?worked(b.id):getPenalty(b.id);
       return (typeof av==="number"?av-bv:String(av).localeCompare(String(bv),undefined,{sensitivity:"base"}))*(sortDirection==="asc"?1:-1);
     });
     document.querySelectorAll("[data-att-sort]").forEach(button=>{
@@ -76,8 +77,7 @@
       const tr=document.createElement("tr");
       if(member.status==="Suspended") tr.classList.add("attendance-suspended");
       if(member.status==="Inactive") tr.classList.add("attendance-inactive");
-      const last=document.createElement("td");last.className="attendance-name-cell attendance-last-name";last.textContent=member.lastName || "";tr.append(last);
-      const first=document.createElement("td");first.className="attendance-name-cell attendance-first-name";first.textContent=member.firstName || "";tr.append(first);
+      const name=document.createElement("td");name.className="attendance-name-cell attendance-full-name";name.textContent=displayName(member);tr.append(name);
       dates.forEach(date=>{
         const td=document.createElement("td");td.className="attendance-check-cell";
         const present=Boolean(attendance[member.id]?.[date]), mark=document.createElement("span");
@@ -114,7 +114,7 @@
     const thead=document.querySelector(".attendance-table thead"), tr=document.createElement("tr");tr.className="day-heading";
     const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
     const addPlain=(label)=>{const th=document.createElement("th");th.textContent=label;tr.append(th);};
-    addSort("Lname","lastName");addSort("Fname","firstName");
+    addSort("Name","name");
     dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.textContent=`${d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()} ${d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase()}`;tr.append(th);});
     addSort("Worked","worked");addSort("Penalty","penalty");thead.replaceChildren(tr);
     thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));
