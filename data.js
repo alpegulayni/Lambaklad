@@ -53,7 +53,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M006",
-    "firstName": "Nonon",
+    "firstName": "Alpe",
     "lastName": "Gulay",
     "address": "Looc",
     "photo": "assets/nonon_gulay.jpg",
@@ -190,7 +190,7 @@ window.GUFA_SCHEDULE = {
     "id": "M021",
     "firstName": "Junry A.",
     "lastName": "Bersabal",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -199,7 +199,7 @@ window.GUFA_SCHEDULE = {
     "id": "M022",
     "firstName": "Jushua",
     "lastName": "Bersabal",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Active",
     "position": "Member"
@@ -242,7 +242,7 @@ window.GUFA_SCHEDULE = {
   },
   {
     "id": "M027",
-    "firstName": "Tata",
+    "firstName": "Alberto",
     "lastName": "Narisma",
     "address": "Looc",
     "photo": null,
@@ -842,24 +842,6 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  },
-  {
-    "id": "M094",
-    "firstName": "Alpe",
-    "lastName": "Gulay",
-    "address": null,
-    "photo": null,
-    "status": "Active",
-    "position": "Member"
-  },
-  {
-    "id": "M095",
-    "firstName": "Alberto",
-    "lastName": "Narisma",
-    "address": null,
-    "photo": null,
-    "status": "Active",
-    "position": "Member"
   }
 ],
 
@@ -930,10 +912,10 @@ window.GUFA_SCHEDULE = {
   // Set enabled=true and provide inclusive dates to pause Bantay assignments.
   // Maintenance dates do not consume a group in the rotation.
   maintenance: {
-    enabled: true,
+    enabled: false,
     type: "NETUP",
-    startDate: "2026-11-18",
-    endDate: "2026-12-10",
+    startDate: "2026-11-10",
+    endDate: "2026-11-12",
     title: "NETUP - Planned Maintenance",
     description: "No Bantay assignment during the network maintenance period."
   },
