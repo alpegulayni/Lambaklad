@@ -1258,3 +1258,19 @@ body {
 .attendance-date-header { white-space:nowrap; }
 @media(max-width:900px) { .attendance-tools { grid-template-columns:1fr 1fr; } .attendance-tools input[type="search"] { grid-column:1 / -1; } .attendance-key { grid-column:1 / -1; } }
 @media(max-width:560px) { .attendance-tools { grid-template-columns:1fr 1fr; } }
+
+
+/* Keep Attendance filter dropdown text left-aligned. */
+.attendance-filter-dropdown,
+.attendance-filter-dropdown .member-filter-panel,
+.attendance-filter-dropdown .member-filter-panel label,
+.attendance-filter-dropdown .filter-panel-actions,
+.attendance-filter-dropdown .filter-panel-actions button {
+  text-align: left;
+}
+.attendance-filter-dropdown .member-filter-panel label {
+  justify-content: flex-start;
+}
+.attendance-filter-dropdown .filter-panel-actions {
+  justify-content: flex-start;
+}
