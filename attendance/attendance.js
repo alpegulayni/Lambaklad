@@ -20,23 +20,48 @@
     : ABSENCE_PENALTY;
   const fullName = m => [m.firstName, m.lastName].filter(Boolean).join(" ");
   const displayName = m => [m.lastName, m.firstName].filter(Boolean).join(", ");
+  const checkedValues = key => Array.from(controls[key].querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
+  const updateFilterSummary = key => {
+    const dropdown=controls[key], selected=checkedValues(key), total=dropdown.querySelectorAll('input[type="checkbox"]').length;
+    const label=dropdown.querySelector(".filter-selection-count");
+    if(label) label.textContent=selected.length===0?"All":selected.length===total?"All selected":`${selected.length} selected`;
+    const toggle=dropdown.querySelector('[data-filter-action="toggle"]');
+    if(toggle) toggle.textContent=selected.length===total && total>0?"Deselect all":"Select all";
+  };
   const readFilters = () => {
-    const params = new URLSearchParams(location.search);
-    Object.entries(controls).forEach(([key, control]) => {
-      const value = params.get(key);
-      if (value === null || !control) return;
-      if (key === "q" || Array.from(control.options).some(option => option.value === value)) control.value = value;
+    const params=new URLSearchParams(location.search);
+    controls.q.value=params.get("q")||"";
+    ["status","address"].forEach(key=>{
+      const selected=new Set((params.get(key)||"").split(",").filter(Boolean));
+      controls[key].querySelectorAll('input[type="checkbox"]').forEach(input=>{input.checked=selected.has(input.value);});
+      updateFilterSummary(key);
     });
   };
   const syncUrl = () => {
-    const url = new URL(location.href);
-    const values = { q: controls.q.value.trim(), status: controls.status.value || "All", address: controls.address.value || "All" };
-    Object.entries(values).forEach(([key,value]) => {
-      const defaultValue = key === "q" ? "" : "All";
-      if (value === defaultValue) url.searchParams.delete(key); else url.searchParams.set(key,value);
-    });
-    history.replaceState({}, "", url.pathname + url.search + url.hash);
+    const url=new URL(location.href);
+    const values={q:controls.q.value.trim(),status:checkedValues("status").join(","),address:checkedValues("address").join(",")};
+    Object.entries(values).forEach(([key,value])=>{if(!value)url.searchParams.delete(key);else url.searchParams.set(key,value);});
+    history.replaceState({},"",url.pathname+url.search+url.hash);
   };
+  ["status","address"].forEach(key=>{
+    const dropdown=controls[key];
+    dropdown.querySelectorAll('input[type="checkbox"]').forEach(input=>input.addEventListener("change",()=>{updateFilterSummary(key);render();}));
+    dropdown.querySelectorAll('[data-filter-action="toggle"]').forEach(button=>button.addEventListener("click",()=>{
+      const boxes=Array.from(dropdown.querySelectorAll('input[type="checkbox"]'));
+      const allSelected=boxes.length>0 && boxes.every(input=>input.checked);
+      boxes.forEach(input=>{input.checked=!allSelected;});
+      updateFilterSummary(key);render();
+    }));
+  });
+  document.addEventListener("click",event=>{
+    if(!event.target.closest(".attendance-filter-dropdown")) document.querySelectorAll(".attendance-filter-dropdown[open]").forEach(dropdown=>dropdown.open=false);
+  });
+  Object.values(controls).filter(control=>control?.classList.contains("attendance-filter-dropdown")).forEach(dropdown=>{
+    dropdown.addEventListener("toggle",()=>{
+      if(dropdown.open) document.querySelectorAll(".attendance-filter-dropdown[open]").forEach(other=>{if(other!==dropdown)other.open=false;});
+    });
+    dropdown.addEventListener("keydown",event=>{if(event.key==="Escape")dropdown.open=false;});
+  });
   const parseCsv = text => {
     const rows=[]; let row=[], field="", quoted=false;
     for(let i=0;i<text.length;i++){
@@ -51,17 +76,17 @@
     const headers=(rows.shift()||[]).map(x=>x.trim().replace(/^\uFEFF/,""));
     return rows.filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||"").trim()])));
   };
-  const worked = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?1:0),0);
+  const absent = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?0:1),0);
   const getPenalty = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?0:getDayPenalty(date)),0);
   const render = () => {
     syncUrl();
-    const q=controls.q.value.trim().toLowerCase(), status=controls.status.value, address=controls.address.value;
+    const q=controls.q.value.trim().toLowerCase(), statuses=checkedValues("status"), addresses=checkedValues("address");
     const filtered=members.filter(m=>fullName(m).toLowerCase().includes(q) &&
-      (status==="All" || m.status===status) &&
-      (address==="All" || (address==="Unassigned" ? !m.address : m.address===address)));
+      (!statuses.length || statuses.includes(m.status || "Active")) &&
+      (!addresses.length || addresses.some(value=>value==="Unassigned"?!m.address:m.address===value)));
     filtered.sort((a,b)=>{
-      const av=sortKey==="name"?`${a.lastName||""}, ${a.firstName||""}`:sortKey==="worked"?worked(a.id):getPenalty(a.id);
-      const bv=sortKey==="name"?`${b.lastName||""}, ${b.firstName||""}`:sortKey==="worked"?worked(b.id):getPenalty(b.id);
+      const av=sortKey==="name"?`${a.lastName||""}, ${a.firstName||""}`:sortKey==="absent"?absent(a.id):getPenalty(a.id);
+      const bv=sortKey==="name"?`${b.lastName||""}, ${b.firstName||""}`:sortKey==="absent"?absent(b.id):getPenalty(b.id);
       return (typeof av==="number"?av-bv:String(av).localeCompare(String(bv),undefined,{sensitivity:"base"}))*(sortDirection==="asc"?1:-1);
     });
     document.querySelectorAll("[data-att-sort]").forEach(button=>{
@@ -106,9 +131,9 @@
         mark.setAttribute("aria-label",`${fullName(member)}, ${date}: ${present?"present":"absent"}`);
         td.append(mark);tr.append(td);
       });
-      const daysWorked=worked(member.id);
-      const total=document.createElement("td");total.className="attendance-worked";
-      const workedBadge=document.createElement("span");workedBadge.className="attendance-worked-value";workedBadge.textContent=String(daysWorked);total.append(workedBadge);tr.append(total);
+      const absentDays=absent(member.id);
+      const total=document.createElement("td");total.className="attendance-absent";
+      const absentValue=document.createElement("span");absentValue.className="attendance-absent-value";absentValue.textContent=String(absentDays);total.append(absentValue);tr.append(total);
       const penalty=document.createElement("td");penalty.className="attendance-penalty";
       const penaltyValue=document.createElement("span");penaltyValue.className="attendance-penalty-value";
       penaltyValue.textContent=`₱${getPenalty(member.id).toLocaleString("en-PH")}`;penalty.append(penaltyValue);tr.append(penalty);
@@ -136,12 +161,12 @@
     const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
     const addPlain=(label)=>{const th=document.createElement("th");th.textContent=label;tr.append(th);};
     addSort("Name","name");
-    dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.className="attendance-date-header";th.textContent=d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase();tr.append(th);});
-    addSort("Worked","worked");addSort("Penalty","penalty");thead.replaceChildren(tr);
+    dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.className="attendance-date-header";th.textContent=`${String(d.getMonth()+1).padStart(2,"0")}/${String(d.getDate()).padStart(2,"0")}`;tr.append(th);});
+    addSort("Absent (days)","absent");addSort("Penalty","penalty");thead.replaceChildren(tr);
     thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));
     readFilters();render();
   };
-  controls.q.addEventListener("input",render);controls.status.addEventListener("change",render);controls.address.addEventListener("change",render);
+  controls.q.addEventListener("input",render);
   window.addEventListener("popstate",()=>{readFilters();render();});
   loadCsv().catch(error=>{console.error(error);document.getElementById("attendance-summary").textContent=`Attendance CSV error: ${error.message}`;});
 })();

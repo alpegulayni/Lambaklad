@@ -1249,3 +1249,12 @@ body {
 /* Status is text-only: no play, pause, stop, dot, or decorative glyphs. */
 .member-status-label { gap:0 !important; }
 .member-status-icon { display:none !important; }
+
+/* Attendance page reuses the compact multi-select dropdown filter treatment. */
+.attendance-tools { display:grid; grid-template-columns:minmax(220px,1fr) 190px 190px auto; align-items:start; gap:10px; }
+.attendance-filter-dropdown { min-width:0; }
+.attendance-absent, .attendance-absent-value { text-align:center; font-weight:800; }
+.attendance-absent-value { display:inline-block; min-width:24px; }
+.attendance-date-header { white-space:nowrap; }
+@media(max-width:900px) { .attendance-tools { grid-template-columns:1fr 1fr; } .attendance-tools input[type="search"] { grid-column:1 / -1; } .attendance-key { grid-column:1 / -1; } }
+@media(max-width:560px) { .attendance-tools { grid-template-columns:1fr 1fr; } }

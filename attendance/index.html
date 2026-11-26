@@ -38,13 +38,32 @@
       </div>
       <div class="attendance-tools">
         <input id="attendance-search" type="search" placeholder="Search member name..." aria-label="Search members" />
-        <select id="attendance-status-filter" aria-label="Filter member status"><option value="All" selected>All Members</option><option value="Active">Active Members</option><option value="Suspended">Suspended Members</option><option value="Inactive">Inactive Members</option></select>
-        <select id="attendance-address-filter" aria-label="Filter by address"><option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Tawid Pasan">Tawid Pasan</option><option value="Unassigned">Unassigned</option></select>
+        <details class="member-filter-dropdown attendance-filter-dropdown" id="attendance-status-filter">
+          <summary><span>Status</span><span class="filter-selection-count">All</span></summary>
+          <div class="member-filter-panel">
+            <div class="filter-panel-actions"><button type="button" data-filter-action="toggle">Select all</button></div>
+            <label><input type="checkbox" value="Active"> Active</label>
+            <label><input type="checkbox" value="Suspended"> Suspended</label>
+            <label><input type="checkbox" value="Inactive"> Inactive</label>
+          </div>
+        </details>
+        <details class="member-filter-dropdown attendance-filter-dropdown" id="attendance-address-filter">
+          <summary><span>Address</span><span class="filter-selection-count">All</span></summary>
+          <div class="member-filter-panel">
+            <div class="filter-panel-actions"><button type="button" data-filter-action="toggle">Select all</button></div>
+            <label><input type="checkbox" value="Looc"> Looc</label>
+            <label><input type="checkbox" value="Pasan"> Pasan</label>
+            <label><input type="checkbox" value="Manga"> Manga</label>
+            <label><input type="checkbox" value="East Guinacot"> East Guinacot</label>
+            <label><input type="checkbox" value="Tawid Pasan"> Tawid Pasan</label>
+            <label><input type="checkbox" value="Unassigned"> Unassigned</label>
+          </div>
+        </details>
         <span class="attendance-key"><b>✓</b> Present = 1 full day</span>
       </div>
       <div class="attendance-table-wrap">
         <table class="attendance-table">
-          <thead><tr class="day-heading"><th>Name</th><th>Loading attendance…</th><th>Worked</th><th>Penalty</th></tr></thead>
+          <thead><tr class="day-heading"><th>Name</th><th>Loading attendance…</th><th>Absent (days)</th><th>Penalty</th></tr></thead>
           <tbody id="attendance-table-body"></tbody>
         </table>
       </div>
