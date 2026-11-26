@@ -9,7 +9,17 @@
   };
   let members = [], dates = [], attendance = {};
   let sortKey = "member", sortDirection = "asc";
-  const requiredDays = 2;
+  const ABSENCE_PENALTY = 600;
+  // Set each attendance date to "whole" or "half".
+  // Whole-day absence = ₱600; half-day absence = ₱300.
+  const ATTENDANCE_DAY_TYPES = {
+    "2026-11-21": "whole",
+    "2026-11-22": "whole",
+    "2026-11-23": "whole"
+  };
+  const getDayPenalty = date => ATTENDANCE_DAY_TYPES[date] === "half"
+    ? ABSENCE_PENALTY * 0.5
+    : ABSENCE_PENALTY;
   const fullName = m => [m.firstName, m.lastName].filter(Boolean).join(" ");
   const readFilters = () => {
     const params = new URLSearchParams(location.search);
@@ -43,6 +53,7 @@
     return rows.filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||"").trim()])));
   };
   const worked = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?1:0),0);
+  const getPenalty = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?0:getDayPenalty(date)),0);
   const render = () => {
     syncUrl();
     const q=controls.q.value.trim().toLowerCase(), status=controls.status.value, address=controls.address.value;
@@ -50,8 +61,8 @@
       (status==="All" || m.status===status) &&
       (address==="All" || (address==="Unassigned" ? !m.address : m.address===address)));
     filtered.sort((a,b)=>{
-      const av=sortKey==="member"?fullName(a):sortKey==="worked"?worked(a.id):worked(a.id)/requiredDays;
-      const bv=sortKey==="member"?fullName(b):sortKey==="worked"?worked(b.id):worked(b.id)/requiredDays;
+      const av=sortKey==="member"?fullName(a):sortKey==="worked"?worked(a.id):getPenalty(a.id);
+      const bv=sortKey==="member"?fullName(b):sortKey==="worked"?worked(b.id):getPenalty(b.id);
       return (typeof av==="number"?av-bv:String(av).localeCompare(String(bv),undefined,{sensitivity:"base"}))*(sortDirection==="asc"?1:-1);
     });
     document.querySelectorAll("[data-att-sort]").forEach(button=>{
@@ -59,14 +70,21 @@
       button.querySelector(".sort-indicator").textContent=active?(sortDirection==="asc"?"▲":"▼"):"↕";
     });
     const active=filtered.filter(m=>m.status==="Active").length, suspended=filtered.filter(m=>m.status==="Suspended").length, inactive=filtered.filter(m=>m.status==="Inactive").length;
-    document.getElementById("attendance-summary").textContent=`${filtered.length} members shown · ${active} active · ${suspended} suspended · ${inactive} inactive · ${requiredDays} day target`;
+    document.getElementById("attendance-summary").textContent=`${filtered.length} members shown · ${active} active · ${suspended} suspended · ${inactive} inactive · ₱600 whole-day absence penalty · ₱300 half-day absence penalty`;
     tbody.replaceChildren();
     filtered.forEach(member=>{
       const tr=document.createElement("tr");
       if(member.status==="Suspended") tr.classList.add("attendance-suspended");
       if(member.status==="Inactive") tr.classList.add("attendance-inactive");
       const identity=document.createElement("td"); identity.className="attendance-member";
-      if(member.photo){const img=document.createElement("img");img.src=member.photo;img.alt="";img.onerror=()=>img.remove();identity.append(img);}
+      if(member.photo){
+        const img=document.createElement("img");
+        // Member photos live in the root /assets folder; this page is one level deeper.
+        img.src = member.photo.startsWith("assets/") ? `../${member.photo}` : member.photo;
+        img.alt="";
+        img.onerror=()=>img.remove();
+        identity.append(img);
+      }
       else {const initials=document.createElement("span");initials.className="member-initials";initials.textContent=fullName(member).split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();identity.append(initials);}
       const wrap=document.createElement("span"), name=document.createElement("strong");name.textContent=fullName(member);wrap.append(name);
       if(member.position && member.position!=="Member"){const p=document.createElement("small");p.textContent=member.position;wrap.append(p);}
@@ -78,17 +96,15 @@
         mark.setAttribute("aria-label",`${fullName(member)}, ${date}: ${present?"present":"absent"}`);
         td.append(mark);tr.append(td);
       });
-      const daysWorked=worked(member.id), percent=daysWorked/requiredDays*100;
+      const daysWorked=worked(member.id);
       const total=document.createElement("td");total.className="attendance-worked";total.textContent=String(daysWorked);tr.append(total);
-      const target=document.createElement("td");target.className="attendance-target";
-      const pct=document.createElement("strong");pct.textContent=`${Math.round(percent)}%`;
-      const track=document.createElement("span");track.className="attendance-progress";
-      const fill=document.createElement("i");fill.style.width=`${Math.min(percent,100)}%`;track.append(fill);target.append(pct,track);tr.append(target);
+      const penalty=document.createElement("td");penalty.className="attendance-penalty";
+      penalty.textContent=`₱${getPenalty(member.id).toLocaleString("en-PH")}`;tr.append(penalty);
       tbody.append(tr);
     });
   };
   const loadCsv=async()=>{
-    const response=await fetch("attendance.csv",{cache:"no-store"});
+    const response=await fetch("csv/attendance.csv",{cache:"no-store"});
     if(!response.ok) throw new Error(`attendance.csv returned ${response.status}`);
     const rows=parseCsv(await response.text());
     if(!rows.length) throw new Error("attendance.csv contains no records");
@@ -108,7 +124,7 @@
     const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
     addSort("Member","member");
     dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.textContent=`${d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()} ${d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase()}`;tr.append(th);});
-    addSort("Worked","worked");addSort("Target %","percent");thead.replaceChildren(tr);
+    addSort("Worked","worked");addSort("Penalty","penalty");thead.replaceChildren(tr);
     thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));
     readFilters();render();
   };

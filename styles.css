@@ -912,3 +912,6 @@ body {
     padding: 0;
   }
 }
+
+/* Attendance penalty column */
+.attendance-penalty { font-weight: 700; white-space: nowrap; color: #a12d2d; }
