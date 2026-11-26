@@ -1260,17 +1260,27 @@ body {
 @media(max-width:560px) { .attendance-tools { grid-template-columns:1fr 1fr; } }
 
 
-/* Keep Attendance filter dropdown text left-aligned. */
-.attendance-filter-dropdown,
-.attendance-filter-dropdown .member-filter-panel,
-.attendance-filter-dropdown .member-filter-panel label,
-.attendance-filter-dropdown .filter-panel-actions,
-.attendance-filter-dropdown .filter-panel-actions button {
-  text-align: left;
-}
+/* Force Attendance dropdown option text and controls to the left. */
 .attendance-filter-dropdown .member-filter-panel label {
-  justify-content: flex-start;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  gap: 7px !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+.attendance-filter-dropdown .member-filter-panel label input[type="checkbox"] {
+  flex: 0 0 14px !important;
+  margin: 0 !important;
 }
 .attendance-filter-dropdown .filter-panel-actions {
-  justify-content: flex-start;
+  display: flex !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+.attendance-filter-dropdown .filter-panel-actions button {
+  margin-right: auto !important;
+  text-align: left !important;
 }
