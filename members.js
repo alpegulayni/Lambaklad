@@ -26,12 +26,10 @@
   const render = () => {
     const query = document.getElementById("member-search").value.trim().toLowerCase();
     const statusFilter = document.getElementById("member-status-filter").value;
-    const positionFilter = document.getElementById("member-position-filter").value;
     const addressFilter = document.getElementById("member-address-filter").value;
     const filtered = members.filter(member =>
       `${member.firstName || ""} ${member.lastName || ""}`.toLowerCase().includes(query) &&
       (statusFilter === "All" || member.status === statusFilter) &&
-      (positionFilter === "All" || member.position === positionFilter) &&
       (addressFilter === "All" || (addressFilter === "Unassigned" ? !member.address : member.address === addressFilter))
     );
     filtered.sort((a,b) => {
@@ -56,7 +54,6 @@
 
       const address = document.createElement("td");
       address.textContent = member.address || "—";
-      const position = document.createElement("td"); position.textContent = member.position || "Member";
       const status = document.createElement("td");
       const statusLabel = document.createElement("span");
       statusLabel.className = `member-status-label ${(member.status || "Active").toLowerCase()}`;
@@ -64,7 +61,7 @@
       status.append(statusLabel);
       firstName.className = "member-name-col fname-col";
       lastName.className = "member-name-col lname-col";
-      row.append(lastName, firstName, address, status, position);
+      row.append(lastName, firstName, address, status);
       tbody.append(row);
     });
   };
@@ -82,7 +79,7 @@
     });
   });
 
-  ["member-search", "member-status-filter", "member-position-filter", "member-address-filter"].forEach(id => {
+  ["member-search", "member-status-filter", "member-address-filter"].forEach(id => {
     const control = document.getElementById(id);
     if (control) control.addEventListener(id === "member-search" ? "input" : "change", render);
   });

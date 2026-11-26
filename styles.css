@@ -846,106 +846,22 @@ body {
 .member-status-label.inactive::before { content: "●"; margin-right: 5px; color: #ffb5b9; }
 
 
-/* Keep masterlist sort indicators consistently aligned at the far right of each header. */
+/* Keep each masterlist sort icon immediately beside its column label. */
 .members-table th .column-sort {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  text-align: left;
-}
-.members-table th .sort-indicator {
-  flex: 0 0 auto;
-  margin-left: auto;
-  text-align: right;
-}
-
-
-/* Pin the sort arrows inside the header row so they cannot wrap underneath the label. */
-.members-table th {
-  position: relative;
-}
-.members-table th .column-sort {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
+  display: inline-flex;
+  width: auto;
   min-height: 16px;
-  padding: 2px 18px 2px 0;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
   text-align: left;
   white-space: nowrap;
 }
 .members-table th .column-sort .sort-indicator {
-  position: absolute;
-  top: 50%;
-  right: 0;
+  position: static;
+  display: inline-block;
+  flex: 0 0 auto;
   margin: 0;
   line-height: 1;
-  transform: translateY(-50%);
-}
-
-
-/* Place the GUFA menu within the site header at the far-right edge. */
-.site-header .gufa-menu-nav {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  z-index: 30;
-}
-.site-header .header-title-col {
-  padding-right: 54px;
-}
-@media (max-width: 767.98px) {
-  .site-header .header-title-col {
-    padding-right: 48px;
-  }
-  .site-header .gufa-menu-toggle {
-    width: 38px;
-    height: 36px;
-  }
-}
-
-/* Keep FNAME and LNAME visually close so they read as one complete name. */
-.members-table th.member-name-col,
-.members-table td.member-name-col {
-  white-space: nowrap;
-  padding-left: 6px;
-  padding-right: 4px;
-}
-.members-table th.fname-col,
-.members-table td.fname-col {
-  width: 105px;
-  padding-right: 2px;
-}
-.members-table th.lname-col,
-.members-table td.lname-col {
-  width: 105px;
-  padding-left: 2px;
-}
-
-/* Keep the surname and first-name columns adjacent as one complete name. */
-.members-table th.member-name-col,
-.members-table td.member-name-col {
-  white-space: nowrap;
-  padding-left: 6px;
-  padding-right: 4px;
-}
-.members-table th.lname-col,
-.members-table td.lname-col {
-  width: 105px;
-  padding-right: 2px;
-}
-.members-table th.fname-col,
-.members-table td.fname-col {
-  width: 105px;
-  padding-left: 2px;
+  transform: none;
 }

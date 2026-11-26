@@ -41,9 +41,6 @@
         <select id="member-status-filter" aria-label="Filter by status">
           <option value="All">All statuses</option><option value="Active">Active</option><option value="Suspended">Suspended</option><option value="Inactive">Inactive</option>
         </select>
-        <select id="member-position-filter" aria-label="Filter by position">
-          <option value="All">All positions</option><option>President</option><option>Vice President</option><option>Treasurer</option><option>Secretary</option><option>Member</option>
-        </select>
         <select id="member-address-filter" aria-label="Filter by address">
           <option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Unassigned">Unassigned</option>
         </select>
@@ -55,12 +52,11 @@
             <th class="member-name-col fname-col"><button type="button" class="column-sort" data-member-sort="firstName">FNAME <span class="sort-indicator">↕</span></button></th>
             <th><button type="button" class="column-sort" data-member-sort="address">Address <span class="sort-indicator">↕</span></button></th>
             <th><button type="button" class="column-sort" data-member-sort="status">Status <span class="sort-indicator">↕</span></button></th>
-            <th><button type="button" class="column-sort" data-member-sort="position">Position <span class="sort-indicator">↕</span></button></th>
           </tr></thead>
           <tbody id="members-table-body"></tbody>
         </table>
       </div>
-      <p class="members-footnote">Members with no address are left unassigned. Update addresses, officer positions, and statuses as needed. Changes are saved in this browser.</p>
+      <p class="members-footnote">Members with no address are left unassigned. Changes are saved in this browser.</p>
     </section>
 
 
