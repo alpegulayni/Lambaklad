@@ -38,6 +38,25 @@
     const toggle = dropdown.querySelector('[data-filter-action="toggle"]');
     if (toggle) toggle.textContent = selected.length === total && total > 0 ? "Deselect all" : "Select all";
   };
+  // Close filter menus when the user clicks anywhere outside them.
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".member-filter-dropdown")) {
+      document.querySelectorAll(".member-filter-dropdown[open]").forEach(dropdown => { dropdown.open = false; });
+    }
+  });
+  // Keep only one filter menu open at a time; Escape closes the open menu.
+  Object.values(filterControls).filter(control => control?.classList.contains("member-filter-dropdown")).forEach(dropdown => {
+    dropdown.addEventListener("toggle", () => {
+      if (dropdown.open) {
+        document.querySelectorAll(".member-filter-dropdown[open]").forEach(other => {
+          if (other !== dropdown) other.open = false;
+        });
+      }
+    });
+    dropdown.addEventListener("keydown", event => {
+      if (event.key === "Escape") dropdown.open = false;
+    });
+  });
   ["status", "address"].forEach(key => {
     const dropdown = filterControls[key];
     dropdown.querySelectorAll('input[type="checkbox"]').forEach(input => input.addEventListener("change", () => { updateFilterSummary(key); render(); }));
