@@ -1065,3 +1065,24 @@ body {
   text-align: center !important;
   white-space: nowrap;
 }
+
+
+/* Clickable attendance rows with a restrained, professional selected state. */
+.attendance-table tbody tr.attendance-selectable-row {
+  cursor: pointer;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+}
+.attendance-table tbody tr.attendance-selectable-row:hover {
+  background: rgba(90, 145, 210, 0.09) !important;
+}
+.attendance-table tbody tr.attendance-selectable-row.is-selected {
+  background: rgba(65, 130, 205, 0.17) !important;
+  box-shadow: inset 3px 0 0 #4b91d1, inset 0 1px 0 rgba(75, 145, 210, 0.35), inset 0 -1px 0 rgba(75, 145, 210, 0.35);
+}
+.attendance-table tbody tr.attendance-selectable-row.is-selected td {
+  background: transparent !important;
+}
+.attendance-table tbody tr.attendance-selectable-row:focus-visible {
+  outline: 2px solid #4b91d1;
+  outline-offset: -2px;
+}

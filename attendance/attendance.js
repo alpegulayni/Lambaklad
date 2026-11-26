@@ -75,6 +75,26 @@
     tbody.replaceChildren();
     filtered.forEach(member=>{
       const tr=document.createElement("tr");
+      tr.classList.add("attendance-selectable-row");
+      tr.tabIndex = 0;
+      tr.setAttribute("role", "button");
+      tr.setAttribute("aria-label", `Select attendance row for ${displayName(member)}`);
+      tr.setAttribute("aria-pressed", "false");
+      const selectRow = () => {
+        tbody.querySelectorAll(".attendance-selectable-row.is-selected").forEach(row => {
+          row.classList.remove("is-selected");
+          row.setAttribute("aria-pressed", "false");
+        });
+        tr.classList.add("is-selected");
+        tr.setAttribute("aria-pressed", "true");
+      };
+      tr.addEventListener("click", selectRow);
+      tr.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectRow();
+        }
+      });
       if(member.status==="Suspended") tr.classList.add("attendance-suspended");
       if(member.status==="Inactive") tr.classList.add("attendance-inactive");
       const name=document.createElement("td");name.className="attendance-name-cell attendance-full-name";name.textContent=displayName(member);tr.append(name);
