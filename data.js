@@ -930,10 +930,10 @@ window.GUFA_SCHEDULE = {
   // Set enabled=true and provide inclusive dates to pause Bantay assignments.
   // Maintenance dates do not consume a group in the rotation.
   maintenance: {
-    enabled: false,
+    enabled: true,
     type: "NETUP",
-    startDate: "2026-11-10",
-    endDate: "2026-11-12",
+    startDate: "2026-11-18",
+    endDate: "2026-12-10",
     title: "NETUP - Planned Maintenance",
     description: "No Bantay assignment during the network maintenance period."
   },
