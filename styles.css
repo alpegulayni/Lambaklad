@@ -1140,3 +1140,47 @@ body {
 .members-table tbody .member-data-row.is-selected { background:#173653; box-shadow:inset 3px 0 0 #45a7ff; }
 .members-table tbody .member-data-row.is-selected td { color:#fff; }
 .members-table tbody .member-data-row:focus-visible { outline:2px solid #45a7ff; outline-offset:-2px; }
+
+
+/* Consistent status badges and clean status glyphs */
+.member-status-label {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 104px;
+  min-width: 104px;
+  height: 27px;
+  min-height: 27px;
+  padding: 0 8px;
+  border: 1px solid #3b4a5a;
+  border-radius: 6px;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.member-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+.member-status-label.suspended .member-status-icon {
+  font-size: 13px;
+  letter-spacing: -2px;
+}
+.member-status-label.active,
+.member-status-label.suspended,
+.member-status-label.inactive {
+  width: 104px;
+  height: 27px;
+}
