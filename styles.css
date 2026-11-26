@@ -865,3 +865,50 @@ body {
   line-height: 1;
   transform: none;
 }
+
+
+/* Keep the ellipsis navigation button anchored at the header's top-right.
+   It must not participate in the header's flex layout or create a second row. */
+.site-header.row {
+  position: relative;
+  padding-right: 52px;
+}
+.site-header .gufa-menu-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.site-header .gufa-menu-nav .dropdown {
+  position: relative;
+}
+.site-header .gufa-menu-toggle {
+  display: inline-flex;
+  width: 40px;
+  height: 36px;
+  margin: 0;
+}
+.site-header .gufa-dropdown-menu {
+  right: 0;
+  left: auto;
+  margin-top: 6px !important;
+}
+@media (max-width: 767.98px) {
+  .site-header.row {
+    padding-right: 48px;
+  }
+  .site-header .gufa-menu-nav {
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
