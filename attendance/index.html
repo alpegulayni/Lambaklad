@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#090f17" />
   <title>GUFA | Attendance</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="data.js" defer></script>
+  <link rel="stylesheet" href="../styles.css" />
+  <script src="../data.js" defer></script>
   <script src="attendance-data.js" defer></script>
   <script src="attendance.js" defer></script>
 </head>
@@ -29,25 +29,24 @@
       <div class="col-6 header-title-col">
         <h1>📋 ATTENDANCE</h1>
       </div>
+      <nav class="gufa-menu-nav" aria-label="GUFA pages"><div class="dropdown"><button class="gufa-menu-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open navigation menu"><span class="gufa-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button><ul class="dropdown-menu dropdown-menu-end gufa-dropdown-menu"><li><a class="dropdown-item" href="../schedule/">Bantay Schedule</a></li><li><a class="dropdown-item" href="../" >Member Masterlist</a></li><li><a class="dropdown-item active" href="./" aria-current="page">Attendance</a></li></ul></div></nav>
     </header>
 
-    <nav class="gufa-menu-nav" aria-label="GUFA pages"><div class="dropdown"><button class="gufa-menu-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open navigation menu"><span class="gufa-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button><ul class="dropdown-menu dropdown-menu-end gufa-dropdown-menu"><li><a class="dropdown-item" href="index.html">Bantay Schedule</a></li><li><a class="dropdown-item" href="index.html?page=members">Member Masterlist</a></li><li><a class="dropdown-item active" href="attendance.html" aria-current="page">Attendance</a></li></ul></div></nav>
 
     <section class="attendance-page" aria-label="Weekly attendance">
       <div class="members-toolbar attendance-toolbar">
-        <div><h2>Weekly Member Attendance</h2><p id="attendance-week-label">November 9–15, 2026</p></div>
         <div class="attendance-summary" id="attendance-summary"></div>
       </div>
       <div class="attendance-tools">
         <input id="attendance-search" type="search" placeholder="Search member name..." aria-label="Search members" />
-        <select id="attendance-status-filter" aria-label="Filter member status"><option value="Active">Active members</option><option value="All">All members</option><option value="Suspended">Suspended members</option></select>
+        <select id="attendance-status-filter" aria-label="Filter member status"><option value="Active">Active members</option><option value="All">All members</option><option value="Suspended">Suspended members</option><option value="Inactive">Inactive members</option></select>
         <select id="attendance-address-filter" aria-label="Filter by address"><option value="All">All addresses</option><option value="Looc">Looc</option><option value="Pasan">Pasan</option><option value="Manga">Manga</option><option value="East Guinacot">East Guinacot</option><option value="Unassigned">Unassigned</option></select>
         <span class="attendance-key"><b>✓</b> Present = 0.5 credit</span>
       </div>
       <div class="attendance-table-wrap">
         <table class="attendance-table">
           <thead>
-            <tr class="day-heading"><th class="attendance-member-head" rowspan="2">Member</th><th colspan="2">MON<br><small>09 NOV</small></th><th colspan="2">TUE<br><small>10 NOV</small></th><th colspan="2">WED<br><small>11 NOV</small></th><th colspan="2">THU<br><small>12 NOV</small></th><th colspan="2">FRI<br><small>13 NOV</small></th><th colspan="2">SAT<br><small>14 NOV</small></th><th colspan="2">SUN<br><small>15 NOV</small></th><th rowspan="2">Worked</th><th rowspan="2">Target %</th></tr>
+            <tr class="day-heading"><th class="attendance-member-head" rowspan="2"><button type="button" class="column-sort" data-att-sort="member">Member <span class="sort-indicator">↕</span></button></th><th colspan="2">MON<br><small>09 NOV</small></th><th colspan="2">TUE<br><small>10 NOV</small></th><th colspan="2">WED<br><small>11 NOV</small></th><th colspan="2">THU<br><small>12 NOV</small></th><th colspan="2">FRI<br><small>13 NOV</small></th><th colspan="2">SAT<br><small>14 NOV</small></th><th colspan="2">SUN<br><small>15 NOV</small></th><th rowspan="2"><button type="button" class="column-sort" data-att-sort="worked">Worked <span class="sort-indicator">↕</span></button></th><th rowspan="2"><button type="button" class="column-sort" data-att-sort="percent">Target % <span class="sort-indicator">↕</span></button></th></tr>
             <tr class="session-heading"><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th><th>M</th><th>A</th></tr>
           </thead>
           <tbody id="attendance-table-body"></tbody>

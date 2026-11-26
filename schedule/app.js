@@ -115,14 +115,14 @@
         avatar = document.createElement("img");
         avatar.className = "avatar";
         avatar.src = member.photo;
-        avatar.alt = `${member.name} profile`;
+        avatar.alt = `${[member.firstName, member.lastName].filter(Boolean).join(" ")} profile`;
         avatar.onerror = () => avatar.replaceWith(createDefaultAvatar());
       } else {
         avatar = createDefaultAvatar();
       }
 
       const label = document.createElement("span");
-      label.textContent = member.name;
+      label.textContent = [member.firstName, member.lastName].filter(Boolean).join(" ");
 
       person.append(avatar, label);
       namesGrid.append(person);

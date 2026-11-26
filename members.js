@@ -3,8 +3,11 @@
   if (!config?.members) return;
 
   // The JavaScript datasource is the single source of truth. This page is read-only.
+  const fullName = member => [member.firstName, member.lastName].filter(Boolean).join(" ");
   const members = config.members.map(member => ({ ...member }));
-  const page = new URLSearchParams(location.search).get("page") || "schedule";
+  let sortKey = "lastName";
+  let sortDirection = "asc";
+  const page = "members";
   const pages = {
     schedule: document.getElementById("schedule-page"),
     members: document.getElementById("members-page")
@@ -26,26 +29,30 @@
     const positionFilter = document.getElementById("member-position-filter").value;
     const addressFilter = document.getElementById("member-address-filter").value;
     const filtered = members.filter(member =>
-      member.name.toLowerCase().includes(query) &&
+      `${member.firstName || ""} ${member.lastName || ""}`.toLowerCase().includes(query) &&
       (statusFilter === "All" || member.status === statusFilter) &&
       (positionFilter === "All" || member.position === positionFilter) &&
       (addressFilter === "All" || (addressFilter === "Unassigned" ? !member.address : member.address === addressFilter))
     );
+    filtered.sort((a,b) => {
+      const av = a[sortKey] || "";
+      const bv = b[sortKey] || "";
+      return String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: "base" }) * (sortDirection === "asc" ? 1 : -1);
+    });
+    document.querySelectorAll("[data-member-sort]").forEach(button => {
+      const active = button.dataset.memberSort === sortKey;
+      button.setAttribute("aria-sort", active ? (sortDirection === "asc" ? "ascending" : "descending") : "none");
+      button.querySelector(".sort-indicator").textContent = active ? (sortDirection === "asc" ? "▲" : "▼") : "↕";
+    });
     document.getElementById("members-count").textContent = `${filtered.length} of ${members.length} members`;
     tbody.replaceChildren();
 
     filtered.forEach(member => {
       const row = document.createElement("tr");
-      const identity = document.createElement("td"); identity.className = "member-identity";
-      if (member.photo) {
-        const img = document.createElement("img"); img.src = member.photo; img.alt = "";
-        img.onerror = () => img.remove(); identity.append(img);
-      } else {
-        const initials = document.createElement("span"); initials.className = "member-initials";
-        initials.textContent = member.name.split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase();
-        identity.append(initials);
-      }
-      const name = document.createElement("strong"); name.textContent = member.name; identity.append(name);
+      const firstName = document.createElement("td");
+      firstName.textContent = member.firstName || "—";
+      const lastName = document.createElement("td");
+      lastName.textContent = member.lastName || "—";
 
       const address = document.createElement("td");
       address.textContent = member.address || "—";
@@ -55,10 +62,23 @@
       statusLabel.className = `member-status-label ${(member.status || "Active").toLowerCase()}`;
       statusLabel.textContent = member.status || "Active";
       status.append(statusLabel);
-      row.append(identity, address, position, status);
+      row.append(lastName, firstName, address, position, status);
       tbody.append(row);
     });
   };
+
+  document.querySelectorAll("[data-member-sort]").forEach(button => {
+    button.addEventListener("click", () => {
+      const key = button.dataset.memberSort;
+      if (sortKey === key) {
+        sortDirection = sortDirection === "asc" ? "desc" : "asc";
+      } else {
+        sortKey = key;
+        sortDirection = "asc";
+      }
+      render();
+    });
+  });
 
   ["member-search", "member-status-filter", "member-position-filter", "member-address-filter"].forEach(id => {
     const control = document.getElementById(id);

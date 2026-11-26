@@ -406,7 +406,7 @@ body {
 .attendance-target strong { display:block; color:#45f58a; font-size:10px; }
 .attendance-progress { display:block; width:48px; height:4px; margin:4px auto 0; overflow:hidden; border-radius:5px; background:#293746; }
 .attendance-progress i { display:block; height:100%; border-radius:5px; background:#36d879; }
-.attendance-suspended { opacity:.48; }
+.attendance-inactive { opacity:.48; }
 .attendance-footer { display:flex; justify-content:space-between; gap:12px; margin-top:10px; color:#8b9aaa; font-size:10px; }
 .attendance-footer strong { color:#e6edf5; }
 @media (max-width:640px) {
@@ -502,7 +502,7 @@ body {
 /* Read-only table presentation */
 .member-status-label{display:inline-flex;align-items:center;padding:4px 9px;border:1px solid #354252;border-radius:999px;font-size:10px;font-weight:800;color:#b8c4d0;background:#182330}
 .member-status-label.active{border-color:#28734b;color:#45f58a;background:#123d29}
-.member-status-label.suspended{border-color:#66505a;color:#d8aab5;background:#35232b}
+.member-status-label.inactive{border-color:#66505a;color:#d8aab5;background:#35232b}
 .attendance-check{display:inline-flex;align-items:center;justify-content:center;min-width:22px;min-height:22px;font-weight:900;user-select:text;cursor:default}
 .attendance-check.is-present{color:#45f58a}
 
@@ -757,10 +757,10 @@ body {
   .attendance-table .attendance-progress {
     display: none !important;
   }
-  .attendance-table .attendance-suspended td {
+  .attendance-table .attendance-inactive td {
     opacity: .48;
   }
-  .attendance-table .attendance-suspended .attendance-member {
+  .attendance-table .attendance-inactive .attendance-member {
     opacity: .65;
   }
   .attendance-footer {
@@ -794,5 +794,122 @@ body {
   }
   .attendance-table thead th {
     font-size: 6.5px !important;
+  }
+}
+
+
+/* Clear status hierarchy and sortable table headers */
+.member-status-label.suspended {
+  border: 1px solid #ff5b63;
+  color: #fff;
+  background: #8f202b;
+  box-shadow: 0 0 0 1px rgba(255,91,99,.18), 0 0 10px rgba(255,65,75,.22);
+}
+.member-status-label.suspended::before { content: "●"; margin-right: 5px; color: #ffb5b9; }
+.member-status-label.inactive {
+  border: 1px solid #e0a33a;
+  color: #ffe2a6;
+  background: #594019;
+}
+.member-status-label.inactive::before { content: "●"; margin-right: 5px; color: #ffc45b; }
+.column-sort {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 0; border: 0; background: transparent;
+  color: inherit; font: inherit; font-weight: 850; text-transform: inherit;
+  letter-spacing: inherit; white-space: nowrap; cursor: pointer;
+}
+.column-sort:hover { color: #fff; }
+.sort-indicator { color: var(--green); font-size: 10px; }
+.members-table th .column-sort { width: 100%; justify-content: flex-start; }
+.attendance-table .column-sort { justify-content: center; }
+.attendance-suspended { background: rgba(143,32,43,.20) !important; }
+.attendance-suspended .attendance-member strong { color: #ff9da3; }
+.attendance-inactive { background: rgba(224,163,58,.12) !important; }
+.attendance-inactive .attendance-member strong { color: #ffe0a0; }
+
+
+/* Member status colors: Suspended is amber; Inactive is red. */
+.member-status-label.suspended {
+  border: 1px solid #e0a33a;
+  color: #ffe2a6;
+  background: #594019;
+  box-shadow: 0 0 0 1px rgba(224,163,58,.16), 0 0 10px rgba(224,163,58,.16);
+}
+.member-status-label.suspended::before { content: "●"; margin-right: 5px; color: #ffc45b; }
+
+.member-status-label.inactive {
+  border: 1px solid #ff5b63;
+  color: #fff;
+  background: #8f202b;
+  box-shadow: 0 0 0 1px rgba(255,91,99,.18), 0 0 10px rgba(255,65,75,.22);
+}
+.member-status-label.inactive::before { content: "●"; margin-right: 5px; color: #ffb5b9; }
+
+
+/* Keep masterlist sort indicators consistently aligned at the far right of each header. */
+.members-table th .column-sort {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  text-align: left;
+}
+.members-table th .sort-indicator {
+  flex: 0 0 auto;
+  margin-left: auto;
+  text-align: right;
+}
+
+
+/* Pin the sort arrows inside the header row so they cannot wrap underneath the label. */
+.members-table th {
+  position: relative;
+}
+.members-table th .column-sort {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 16px;
+  padding: 2px 18px 2px 0;
+  text-align: left;
+  white-space: nowrap;
+}
+.members-table th .column-sort .sort-indicator {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin: 0;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+
+/* Place the GUFA menu within the site header at the far-right edge. */
+.site-header .gufa-menu-nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  z-index: 30;
+}
+.site-header .header-title-col {
+  padding-right: 54px;
+}
+@media (max-width: 767.98px) {
+  .site-header .header-title-col {
+    padding-right: 48px;
+  }
+  .site-header .gufa-menu-toggle {
+    width: 38px;
+    height: 36px;
   }
 }
