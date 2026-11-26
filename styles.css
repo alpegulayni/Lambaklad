@@ -943,3 +943,52 @@ body {
 .attendance-table td.attendance-name-cell { min-width: 0; white-space: nowrap; }
 .attendance-table .column-sort { gap: 3px; font-size: 9px; }
 .attendance-table .sort-indicator { font-size: 9px; }
+
+
+/* Attendance: compact, fixed-width daily mark columns and clear present/absent icons. */
+.attendance-table th.attendance-date-header,
+.attendance-table td.attendance-check-cell {
+  box-sizing: border-box;
+  width: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+  text-align: center;
+  white-space: nowrap;
+}
+.attendance-table td.attendance-check-cell .attendance-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  min-width: 14px;
+  height: 14px;
+  min-height: 14px;
+  font-size: 10px !important;
+  line-height: 1;
+  font-weight: 800;
+}
+.attendance-table td.attendance-check-cell .attendance-check.is-present {
+  color: #57efa0;
+}
+.attendance-table td.attendance-check-cell .attendance-check:not(.is-present) {
+  color: #ff727c;
+}
+@media (max-width: 767.98px) {
+  .attendance-table th.attendance-date-header,
+  .attendance-table td.attendance-check-cell {
+    width: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .attendance-table td.attendance-check-cell .attendance-check {
+    width: 12px;
+    min-width: 12px;
+    height: 12px;
+    min-height: 12px;
+    font-size: 9px !important;
+  }
+}

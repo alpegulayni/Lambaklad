@@ -81,7 +81,7 @@
       dates.forEach(date=>{
         const td=document.createElement("td");td.className="attendance-check-cell";
         const present=Boolean(attendance[member.id]?.[date]), mark=document.createElement("span");
-        mark.className=`attendance-check${present?" is-present":""}`;mark.textContent=present?"✓":"–";
+        mark.className=`attendance-check${present?" is-present":""}`;mark.textContent=present?"✓":"×";
         mark.setAttribute("aria-label",`${fullName(member)}, ${date}: ${present?"present":"absent"}`);
         td.append(mark);tr.append(td);
       });
@@ -115,7 +115,7 @@
     const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
     const addPlain=(label)=>{const th=document.createElement("th");th.textContent=label;tr.append(th);};
     addSort("Name","name");
-    dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.textContent=`${d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()} ${d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase()}`;tr.append(th);});
+    dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.className="attendance-date-header";th.textContent=d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase();tr.append(th);});
     addSort("Worked","worked");addSort("Penalty","penalty");thead.replaceChildren(tr);
     thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));
     readFilters();render();
