@@ -29,6 +29,23 @@
     address: document.getElementById("member-address-filter")
   };
   const checkedValues = key => Array.from(filterControls[key].querySelectorAll('input[type="checkbox"]:checked')).map(input => input.value);
+  const updateFilterSummary = key => {
+    const dropdown = filterControls[key];
+    const selected = checkedValues(key);
+    const total = dropdown.querySelectorAll('input[type="checkbox"]').length;
+    const label = dropdown.querySelector(".filter-selection-count");
+    if (label) label.textContent = selected.length === 0 ? "All" : selected.length === total ? "All selected" : `${selected.length} selected`;
+  };
+  ["status", "address"].forEach(key => {
+    const dropdown = filterControls[key];
+    dropdown.querySelectorAll('input[type="checkbox"]').forEach(input => input.addEventListener("change", () => { updateFilterSummary(key); render(); }));
+    dropdown.querySelectorAll("[data-filter-action]").forEach(button => button.addEventListener("click", () => {
+      const selectAll = button.dataset.filterAction === "all";
+      dropdown.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = selectAll; });
+      updateFilterSummary(key);
+      render();
+    }));
+  });
   const readFiltersFromUrl = () => {
     const params = new URLSearchParams(window.location.search);
     if (filterControls.q) filterControls.q.value = params.get("q") || "";
@@ -51,6 +68,7 @@
     window.history.replaceState({}, "", url.pathname + url.search + url.hash);
   };
   readFiltersFromUrl();
+  ["status", "address"].forEach(updateFilterSummary);
 
   let selectedMemberId = null;
 

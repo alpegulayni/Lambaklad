@@ -1216,3 +1216,32 @@ body {
   border: 0;
   border-radius: 0;
 }
+
+/* Inactive status uses its square icon only; remove the legacy decorative dot. */
+.member-status-label.inactive::before { content: none !important; display: none !important; }
+
+/* Compact checkbox filter dropdowns */
+.members-filters { grid-template-columns:minmax(190px,1fr) 190px 190px; align-items:start; }
+.member-filter-dropdown { position:relative; min-width:0; color:#e2e8f0; font-size:11px; }
+.member-filter-dropdown > summary {
+  list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px;
+  min-height:36px; padding:8px 11px; border:1px solid #354252; border-radius:8px;
+  background:#171e27; color:#f1f5f9; cursor:pointer; user-select:none;
+}
+.member-filter-dropdown > summary::-webkit-details-marker { display:none; }
+.member-filter-dropdown > summary::after { content:"▾"; color:#9fb0c2; margin-left:auto; }
+.member-filter-dropdown[open] > summary { border-color:#38bdf8; border-bottom-left-radius:0; border-bottom-right-radius:0; }
+.filter-selection-count { color:#9fb0c2; font-size:10px; }
+.member-filter-panel {
+  position:absolute; z-index:20; top:100%; left:0; right:0; padding:9px 11px 11px;
+  border:1px solid #354252; border-top:0; border-radius:0 0 8px 8px;
+  background:#171e27; box-shadow:0 10px 24px rgba(0,0,0,.35);
+  display:grid; gap:9px; max-height:260px; overflow-y:auto;
+}
+.member-filter-panel label { display:flex; align-items:center; gap:7px; margin:0; color:#e2e8f0; font-size:11px; cursor:pointer; }
+.member-filter-panel input[type="checkbox"] { width:14px; height:14px; margin:0; accent-color:#38bdf8; }
+.filter-panel-actions { display:flex; gap:7px; padding-bottom:7px; border-bottom:1px solid #354252; }
+.filter-panel-actions button { padding:4px 7px; border:1px solid #46576b; border-radius:5px; background:#202d3b; color:#dce8f5; font-size:10px; cursor:pointer; }
+.filter-panel-actions button:hover { background:#2a4055; }
+@media (max-width:900px) { .members-filters { grid-template-columns:1fr 1fr; } .members-filters input[type="search"] { grid-column:1 / -1; } }
+@media (max-width:560px) { .members-filters { grid-template-columns:1fr 1fr; } }
