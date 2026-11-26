@@ -1,137 +1,118 @@
 (() => {
   const config = window.GUFA_SCHEDULE;
-  const sample = window.GUFA_ATTENDANCE_DATA;
-  if (!config?.members || !sample?.records) return;
-
-  // Read-only view: member and attendance values come directly from JS data files.
-  // No browser storage is read or written.
-  const days = Array.from({ length: 7 }, (_, i) => {
-    const date = new Date(`${sample.weekStart}T12:00:00`);
-    date.setDate(date.getDate() + i);
-    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-  });
-  const required = Number(sample.requiredCredits) || 2;
-  const fullName = member => [member.firstName, member.lastName].filter(Boolean).join(" ");
-  const members = config.members.map(member => ({ ...member }));
-  let sortKey = "member";
-  let sortDirection = "asc";
-  const attendance = sample.records;
+  if (!config?.members) return;
   const tbody = document.getElementById("attendance-table-body");
-  const filterControls = {
+  const controls = {
     q: document.getElementById("attendance-search"),
     status: document.getElementById("attendance-status-filter"),
     address: document.getElementById("attendance-address-filter")
   };
-  const readFiltersFromUrl = () => {
-    const params = new URLSearchParams(window.location.search);
-    Object.entries(filterControls).forEach(([key, control]) => {
-      if (!control) return;
+  let members = [], dates = [], attendance = {};
+  let sortKey = "member", sortDirection = "asc";
+  const requiredDays = 2;
+  const fullName = m => [m.firstName, m.lastName].filter(Boolean).join(" ");
+  const readFilters = () => {
+    const params = new URLSearchParams(location.search);
+    Object.entries(controls).forEach(([key, control]) => {
       const value = params.get(key);
-      if (value === null) return;
-      const valid = key === "q" || Array.from(control.options).some(option => option.value === value);
-      if (valid) control.value = value;
+      if (value === null || !control) return;
+      if (key === "q" || Array.from(control.options).some(option => option.value === value)) control.value = value;
     });
   };
-  const syncFiltersToUrl = () => {
-    const url = new URL(window.location.href);
-    const values = {
-      q: filterControls.q?.value.trim() || "",
-      status: filterControls.status?.value || "Active",
-      address: filterControls.address?.value || "All"
-    };
-    Object.entries(values).forEach(([key, value]) => {
-      const defaultValue = key === "q" ? "" : (key === "status" ? "Active" : "All");
-      if (value === defaultValue) url.searchParams.delete(key);
-      else url.searchParams.set(key, value);
+  const syncUrl = () => {
+    const url = new URL(location.href);
+    const values = { q: controls.q.value.trim(), status: controls.status.value || "Active", address: controls.address.value || "All" };
+    Object.entries(values).forEach(([key,value]) => {
+      const defaultValue = key === "q" ? "" : key === "status" ? "Active" : "All";
+      if (value === defaultValue) url.searchParams.delete(key); else url.searchParams.set(key,value);
     });
-    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+    history.replaceState({}, "", url.pathname + url.search + url.hash);
   };
-  readFiltersFromUrl();
-
-  const getDay = (memberId, date) => attendance[memberId]?.[date] || { morning: false, afternoon: false };
-  const getCredits = memberId => days.reduce((total, date) => {
-    const record = getDay(memberId, date);
-    return total + (record.morning ? 0.5 : 0) + (record.afternoon ? 0.5 : 0);
-  }, 0);
-
+  const parseCsv = text => {
+    const rows=[]; let row=[], field="", quoted=false;
+    for(let i=0;i<text.length;i++){
+      const c=text[i], n=text[i+1];
+      if(quoted){ if(c === '"' && n === '"'){field+='"';i++;} else if(c === '"') quoted=false; else field+=c; }
+      else if(c === '"') quoted=true;
+      else if(c === ','){row.push(field);field="";}
+      else if(c === '\n'){row.push(field);rows.push(row);row=[];field="";}
+      else if(c !== '\r') field+=c;
+    }
+    if(field.length || row.length){row.push(field);rows.push(row);}
+    const headers=(rows.shift()||[]).map(x=>x.trim().replace(/^\uFEFF/,""));
+    return rows.filter(r=>r.some(x=>x.trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||"").trim()])));
+  };
+  const worked = id => dates.reduce((sum,date)=>sum+(attendance[id]?.[date]?1:0),0);
   const render = () => {
-    syncFiltersToUrl();
-    const query = document.getElementById("attendance-search").value.trim().toLowerCase();
-    const status = document.getElementById("attendance-status-filter").value;
-    const address = document.getElementById("attendance-address-filter").value;
-    const filtered = members.filter(member => fullName(member).toLowerCase().includes(query) && (status === "All" || member.status === status) && (address === "All" || (address === "Unassigned" ? !member.address : member.address === address)));
-    filtered.sort((a,b) => {
-      let av, bv;
-      if (sortKey === "member") { av = fullName(a); bv = fullName(b); }
-      else if (sortKey === "worked") { av = getCredits(a.id); bv = getCredits(b.id); }
-      else { av = getCredits(a.id) / required; bv = getCredits(b.id) / required; }
-      return (typeof av === "number" ? av - bv : String(av).localeCompare(String(bv), undefined, {sensitivity:"base"})) * (sortDirection === "asc" ? 1 : -1);
+    syncUrl();
+    const q=controls.q.value.trim().toLowerCase(), status=controls.status.value, address=controls.address.value;
+    const filtered=members.filter(m=>fullName(m).toLowerCase().includes(q) &&
+      (status==="All" || m.status===status) &&
+      (address==="All" || (address==="Unassigned" ? !m.address : m.address===address)));
+    filtered.sort((a,b)=>{
+      const av=sortKey==="member"?fullName(a):sortKey==="worked"?worked(a.id):worked(a.id)/requiredDays;
+      const bv=sortKey==="member"?fullName(b):sortKey==="worked"?worked(b.id):worked(b.id)/requiredDays;
+      return (typeof av==="number"?av-bv:String(av).localeCompare(String(bv),undefined,{sensitivity:"base"}))*(sortDirection==="asc"?1:-1);
     });
-    document.querySelectorAll("[data-att-sort]").forEach(button => {
-      const active = button.dataset.attSort === sortKey;
-      button.querySelector(".sort-indicator").textContent = active ? (sortDirection === "asc" ? "▲" : "▼") : "↕";
+    document.querySelectorAll("[data-att-sort]").forEach(button=>{
+      const active=button.dataset.attSort===sortKey;
+      button.querySelector(".sort-indicator").textContent=active?(sortDirection==="asc"?"▲":"▼"):"↕";
     });
-    const filteredCount = filtered.length;
-    const activeFilteredCount = filtered.filter(member => member.status === "Active").length;
-    const suspendedCount = filtered.filter(member => member.status === "Suspended").length;
-    const inactiveCount = filtered.filter(member => member.status === "Inactive").length;
-    document.getElementById("attendance-summary").textContent =
-      `${filteredCount} member${filteredCount === 1 ? "" : "s"} shown · ${activeFilteredCount} active · ${suspendedCount} suspended · ${inactiveCount} inactive · ${required.toFixed(1)} credit target`;
+    const active=filtered.filter(m=>m.status==="Active").length, suspended=filtered.filter(m=>m.status==="Suspended").length, inactive=filtered.filter(m=>m.status==="Inactive").length;
+    document.getElementById("attendance-summary").textContent=`${filtered.length} members shown · ${active} active · ${suspended} suspended · ${inactive} inactive · ${requiredDays} day target`;
     tbody.replaceChildren();
-
-    filtered.forEach(member => {
-      const row = document.createElement("tr");
-      if (member.status === "Suspended") row.classList.add("attendance-suspended");
-      if (member.status === "Inactive") row.classList.add("attendance-inactive");
-      const identity = document.createElement("td"); identity.className = "attendance-member";
-      if (member.photo) {
-        const img = document.createElement("img"); img.src = member.photo; img.alt = ""; img.onerror = () => img.remove(); identity.append(img);
-      } else {
-        const initials = document.createElement("span"); initials.className = "member-initials";
-        initials.textContent = fullName(member).split(/\s+/).slice(0, 2).map(part => part[0]).join("").toUpperCase(); identity.append(initials);
-      }
-      const nameWrap = document.createElement("span");
-      const name = document.createElement("strong"); name.textContent = fullName(member); nameWrap.append(name);
-      if (member.position && member.position !== "Member") { const position = document.createElement("small"); position.textContent = member.position; nameWrap.append(position); }
-      identity.append(nameWrap); row.append(identity);
-
-      days.forEach(date => {
-        const record = getDay(member.id, date);
-        ["morning", "afternoon"].forEach(session => {
-          const cell = document.createElement("td"); cell.className = "attendance-check-cell";
-          const present = Boolean(record[session]);
-          const value = document.createElement("span");
-          value.className = `attendance-check${present ? " is-present" : ""}`;
-          value.textContent = present ? "✓" : "–";
-          value.setAttribute("aria-label", `${fullName(member)}, ${date}, ${session}: ${present ? "present" : "absent"}`);
-          cell.append(value); row.append(cell);
-        });
+    filtered.forEach(member=>{
+      const tr=document.createElement("tr");
+      if(member.status==="Suspended") tr.classList.add("attendance-suspended");
+      if(member.status==="Inactive") tr.classList.add("attendance-inactive");
+      const identity=document.createElement("td"); identity.className="attendance-member";
+      if(member.photo){const img=document.createElement("img");img.src=member.photo;img.alt="";img.onerror=()=>img.remove();identity.append(img);}
+      else {const initials=document.createElement("span");initials.className="member-initials";initials.textContent=fullName(member).split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase();identity.append(initials);}
+      const wrap=document.createElement("span"), name=document.createElement("strong");name.textContent=fullName(member);wrap.append(name);
+      if(member.position && member.position!=="Member"){const p=document.createElement("small");p.textContent=member.position;wrap.append(p);}
+      identity.append(wrap);tr.append(identity);
+      dates.forEach(date=>{
+        const td=document.createElement("td");td.className="attendance-check-cell";
+        const present=Boolean(attendance[member.id]?.[date]), mark=document.createElement("span");
+        mark.className=`attendance-check${present?" is-present":""}`;mark.textContent=present?"✓":"–";
+        mark.setAttribute("aria-label",`${fullName(member)}, ${date}: ${present?"present":"absent"}`);
+        td.append(mark);tr.append(td);
       });
-
-      const credits = getCredits(member.id);
-      const percent = required > 0 ? credits / required * 100 : 0;
-      const worked = document.createElement("td"); worked.className = "attendance-worked"; worked.textContent = credits.toFixed(1); row.append(worked);
-      const target = document.createElement("td"); target.className = "attendance-target";
-      const value = document.createElement("strong"); value.textContent = `${Math.round(percent)}%`;
-      const track = document.createElement("span"); track.className = "attendance-progress";
-      const fill = document.createElement("i"); fill.style.width = `${Math.min(percent, 100)}%`; track.append(fill);
-      target.append(value, track); row.append(target);
-      tbody.append(row);
+      const daysWorked=worked(member.id), percent=daysWorked/requiredDays*100;
+      const total=document.createElement("td");total.className="attendance-worked";total.textContent=String(daysWorked);tr.append(total);
+      const target=document.createElement("td");target.className="attendance-target";
+      const pct=document.createElement("strong");pct.textContent=`${Math.round(percent)}%`;
+      const track=document.createElement("span");track.className="attendance-progress";
+      const fill=document.createElement("i");fill.style.width=`${Math.min(percent,100)}%`;track.append(fill);target.append(pct,track);tr.append(target);
+      tbody.append(tr);
     });
   };
-
-  document.querySelectorAll("[data-att-sort]").forEach(button => button.addEventListener("click", () => {
-    const key = button.dataset.attSort;
-    if (sortKey === key) sortDirection = sortDirection === "asc" ? "desc" : "asc";
-    else { sortKey = key; sortDirection = "asc"; }
-    render();
-  }));
-  document.getElementById("attendance-search").addEventListener("input", render);
-  document.getElementById("attendance-status-filter").addEventListener("change", render);
-  document.getElementById("attendance-address-filter").addEventListener("change", render);
-  window.addEventListener("popstate", () => {
-    readFiltersFromUrl();
-    render();
-  });
-  render();
+  const loadCsv=async()=>{
+    const response=await fetch("attendance.csv",{cache:"no-store"});
+    if(!response.ok) throw new Error(`attendance.csv returned ${response.status}`);
+    const rows=parseCsv(await response.text());
+    if(!rows.length) throw new Error("attendance.csv contains no records");
+    const headers=Object.keys(rows[0]);
+    dates=headers.filter(h=>/^\d{4}-\d{2}-\d{2}$/.test(h)).sort();
+    if(!dates.length) throw new Error("No attendance date columns found in CSV");
+    const registry=new Map(config.members.map(m=>[m.id,m]));
+    const csvById=new Map(rows.map(row=>[row.MemberID,row]));
+    members=[];attendance={};
+    csvById.forEach((row,id)=>{
+      const base=registry.get(id); if(!base) return;
+      members.push({...base,firstName:row.FirstName||base.firstName,lastName:row.LastName||base.lastName,address:row.Address||base.address,status:row.Status||base.status});
+      attendance[id]={};
+      dates.forEach(date=>attendance[id][date]=row[date]==="1" || row[date].toLowerCase()==="true");
+    });
+    const thead=document.querySelector(".attendance-table thead"), tr=document.createElement("tr");tr.className="day-heading";
+    const addSort=(label,key)=>{const th=document.createElement("th"),button=document.createElement("button");button.type="button";button.className="column-sort";button.dataset.attSort=key;button.innerHTML=`${label} <span class="sort-indicator">↕</span>`;th.append(button);tr.append(th);};
+    addSort("Member","member");
+    dates.forEach(date=>{const d=new Date(`${date}T12:00:00`),th=document.createElement("th");th.textContent=`${d.toLocaleDateString("en-US",{weekday:"short"}).toUpperCase()} ${d.toLocaleDateString("en-US",{day:"2-digit",month:"short"}).toUpperCase()}`;tr.append(th);});
+    addSort("Worked","worked");addSort("Target %","percent");thead.replaceChildren(tr);
+    thead.querySelectorAll("[data-att-sort]").forEach(button=>button.addEventListener("click",()=>{const key=button.dataset.attSort;if(sortKey===key)sortDirection=sortDirection==="asc"?"desc":"asc";else{sortKey=key;sortDirection="asc";}render();}));
+    readFilters();render();
+  };
+  controls.q.addEventListener("input",render);controls.status.addEventListener("change",render);controls.address.addEventListener("change",render);
+  window.addEventListener("popstate",()=>{readFilters();render();});
+  loadCsv().catch(error=>{console.error(error);document.getElementById("attendance-summary").textContent=`Attendance CSV error: ${error.message}`;});
 })();
