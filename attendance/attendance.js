@@ -94,8 +94,7 @@
       button.querySelector(".sort-indicator").textContent=active?(sortDirection==="asc"?"▲":"▼"):"↕";
     });
     const active=filtered.filter(m=>m.status==="Active").length, suspended=filtered.filter(m=>m.status==="Suspended").length, inactive=filtered.filter(m=>m.status==="Inactive").length;
-    document.getElementById("attendance-summary").textContent=`${filtered.length} members shown · ${active} active · ${suspended} suspended · ${inactive} inactive · ₱600 whole-day absence penalty · ₱300 half-day absence penalty`;
-    tbody.replaceChildren();
+tbody.replaceChildren();
     filtered.forEach(member=>{
       const tr=document.createElement("tr");
       tr.classList.add("attendance-selectable-row");
@@ -168,5 +167,6 @@
   };
   controls.q.addEventListener("input",render);
   window.addEventListener("popstate",()=>{readFilters();render();});
-  loadCsv().catch(error=>{console.error(error);document.getElementById("attendance-summary").textContent=`Attendance CSV error: ${error.message}`;});
+  loadCsv().catch(error=>{console.error(error);
+});
 })();
