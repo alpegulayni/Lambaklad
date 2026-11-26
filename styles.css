@@ -1245,3 +1245,7 @@ body {
 .filter-panel-actions button:hover { background:#2a4055; }
 @media (max-width:900px) { .members-filters { grid-template-columns:1fr 1fr; } .members-filters input[type="search"] { grid-column:1 / -1; } }
 @media (max-width:560px) { .members-filters { grid-template-columns:1fr 1fr; } }
+
+/* Status is text-only: no play, pause, stop, dot, or decorative glyphs. */
+.member-status-label { gap:0 !important; }
+.member-status-icon { display:none !important; }

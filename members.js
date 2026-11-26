@@ -35,13 +35,16 @@
     const total = dropdown.querySelectorAll('input[type="checkbox"]').length;
     const label = dropdown.querySelector(".filter-selection-count");
     if (label) label.textContent = selected.length === 0 ? "All" : selected.length === total ? "All selected" : `${selected.length} selected`;
+    const toggle = dropdown.querySelector('[data-filter-action="toggle"]');
+    if (toggle) toggle.textContent = selected.length === total && total > 0 ? "Deselect all" : "Select all";
   };
   ["status", "address"].forEach(key => {
     const dropdown = filterControls[key];
     dropdown.querySelectorAll('input[type="checkbox"]').forEach(input => input.addEventListener("change", () => { updateFilterSummary(key); render(); }));
     dropdown.querySelectorAll("[data-filter-action]").forEach(button => button.addEventListener("click", () => {
-      const selectAll = button.dataset.filterAction === "all";
-      dropdown.querySelectorAll('input[type="checkbox"]').forEach(input => { input.checked = selectAll; });
+      const checkboxes = Array.from(dropdown.querySelectorAll('input[type="checkbox"]'));
+      const allSelected = checkboxes.length > 0 && checkboxes.every(input => input.checked);
+      checkboxes.forEach(input => { input.checked = !allSelected; });
       updateFilterSummary(key);
       render();
     }));
@@ -108,19 +111,7 @@
       const normalizedStatus = (member.status || "Active").toLowerCase();
       const statusLabel = document.createElement("span");
       statusLabel.className = `member-status-label ${normalizedStatus}`;
-      const statusIcon = document.createElement("span");
-      statusIcon.className = "member-status-icon";
-      statusIcon.setAttribute("aria-hidden", "true");
-      const iconByStatus = { active: "▶", inactive: "■" };
-      if (normalizedStatus === "suspended") {
-        statusIcon.classList.add("suspended-bars");
-        statusIcon.innerHTML = '<span></span><span></span>';
-      } else {
-        statusIcon.textContent = iconByStatus[normalizedStatus] || iconByStatus.active;
-      }
-      const statusText = document.createElement("span");
-      statusText.textContent = member.status || "Active";
-      statusLabel.append(statusIcon, statusText);
+      statusLabel.textContent = member.status || "Active";
       status.append(statusLabel);
 
       firstName.className = "member-name-col fname-col";
