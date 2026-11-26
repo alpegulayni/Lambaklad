@@ -153,7 +153,7 @@
     members=[];attendance={};
     csvById.forEach((row,id)=>{
       const base=registry.get(id); if(!base) return;
-      members.push({...base,firstName:row.FirstName||base.firstName,lastName:row.LastName||base.lastName,address:row.Address||base.address,status:row.Status||base.status});
+      members.push({...base}); // Member details come from the masterlist; CSV names are retained for future use.
       attendance[id]={};
       dates.forEach(date=>attendance[id][date]=row[date]==="1" || row[date].toLowerCase()==="true");
     });

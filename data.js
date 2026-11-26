@@ -394,15 +394,6 @@ window.GUFA_SCHEDULE = {
     "position": "Member"
   },
   {
-    "id": "M044",
-    "firstName": "Rolando",
-    "lastName": "Ampusta",
-    "address": "Looc",
-    "photo": null,
-    "status": "Active",
-    "position": "Member"
-  },
-  {
     "id": "M045",
     "firstName": "Joelito P.",
     "lastName": "Antipuesto",
