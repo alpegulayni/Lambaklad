@@ -17,8 +17,6 @@
   let sortDirection = "asc";
   const attendance = sample.records;
   const tbody = document.getElementById("attendance-table-body");
-  const dateLabel = new Date(`${sample.weekStart}T12:00:00`).toLocaleDateString("en-PH", { month: "long", day: "numeric" }) + "–" + new Date(`${days[6]}T12:00:00`).toLocaleDateString("en-PH", { day: "numeric", year: "numeric" });
-  document.getElementById("attendance-week-label").textContent = dateLabel;
 
   const getDay = (memberId, date) => attendance[memberId]?.[date] || { morning: false, afternoon: false };
   const getCredits = memberId => days.reduce((total, date) => {
