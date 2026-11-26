@@ -992,3 +992,43 @@ body {
     font-size: 9px !important;
   }
 }
+
+
+/* Attendance: compact summary columns and fully visible member names. */
+.attendance-table th:nth-last-child(2),
+.attendance-table td.attendance-worked {
+  width: 48px !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+  padding: 3px 2px !important;
+  text-align: center;
+  white-space: nowrap;
+}
+.attendance-table th:last-child,
+.attendance-table td.attendance-penalty {
+  width: 68px !important;
+  min-width: 68px !important;
+  max-width: 68px !important;
+  padding: 3px 3px !important;
+  text-align: center;
+  white-space: nowrap;
+}
+.attendance-table .attendance-worked-value,
+.attendance-table .attendance-penalty-value {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 2px 3px !important;
+  border-radius: 5px !important;
+  font-size: 10px !important;
+  line-height: 1.2;
+}
+.attendance-table th:first-child,
+.attendance-table td.attendance-name-cell {
+  padding-left: 10px !important;
+}
+.attendance-table td.attendance-name-cell {
+  max-width: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
