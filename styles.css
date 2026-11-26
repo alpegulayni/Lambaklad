@@ -1102,3 +1102,19 @@ body {
 .attendance-table tbody tr:last-child td.attendance-penalty {
   border-bottom: 0 !important;
 }
+
+
+/* Attendance rows keep one consistent appearance regardless of member status filter. */
+.attendance-table tbody tr.attendance-suspended,
+.attendance-table tbody tr.attendance-inactive {
+  opacity: 1 !important;
+  background: transparent !important;
+}
+.attendance-table tbody tr.attendance-suspended td,
+.attendance-table tbody tr.attendance-inactive td {
+  opacity: 1 !important;
+}
+.attendance-table tbody tr.attendance-suspended .attendance-member strong,
+.attendance-table tbody tr.attendance-inactive .attendance-member strong {
+  color: inherit !important;
+}

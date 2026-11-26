@@ -8,6 +8,7 @@
     address: document.getElementById("attendance-address-filter")
   };
   let members = [], dates = [], attendance = {};
+  let selectedMemberId = null;
   let sortKey = "name", sortDirection = "asc";
   const ABSENCE_PENALTY = 600;
   // Set each attendance date to "whole" or "half".
@@ -32,9 +33,9 @@
   };
   const syncUrl = () => {
     const url = new URL(location.href);
-    const values = { q: controls.q.value.trim(), status: controls.status.value || "Active", address: controls.address.value || "All" };
+    const values = { q: controls.q.value.trim(), status: controls.status.value || "All", address: controls.address.value || "All" };
     Object.entries(values).forEach(([key,value]) => {
-      const defaultValue = key === "q" ? "" : key === "status" ? "Active" : "All";
+      const defaultValue = key === "q" ? "" : "All";
       if (value === defaultValue) url.searchParams.delete(key); else url.searchParams.set(key,value);
     });
     history.replaceState({}, "", url.pathname + url.search + url.hash);
@@ -81,6 +82,7 @@
       tr.setAttribute("aria-label", `Select attendance row for ${displayName(member)}`);
       tr.setAttribute("aria-pressed", "false");
       const selectRow = () => {
+        selectedMemberId = member.id;
         tbody.querySelectorAll(".attendance-selectable-row.is-selected").forEach(row => {
           row.classList.remove("is-selected");
           row.setAttribute("aria-pressed", "false");
@@ -88,6 +90,10 @@
         tr.classList.add("is-selected");
         tr.setAttribute("aria-pressed", "true");
       };
+      if (member.id === selectedMemberId) {
+        tr.classList.add("is-selected");
+        tr.setAttribute("aria-pressed", "true");
+      }
       tr.addEventListener("click", selectRow);
       tr.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
@@ -95,8 +101,6 @@
           selectRow();
         }
       });
-      if(member.status==="Suspended") tr.classList.add("attendance-suspended");
-      if(member.status==="Inactive") tr.classList.add("attendance-inactive");
       const name=document.createElement("td");name.className="attendance-name-cell attendance-full-name";name.textContent=displayName(member);tr.append(name);
       dates.forEach(date=>{
         const td=document.createElement("td");td.className="attendance-check-cell";
