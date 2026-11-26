@@ -552,7 +552,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Asilo",
     "address": "Looc",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -561,7 +561,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Aton",
     "address": "East Guinacot",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -570,7 +570,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Auxtero",
     "address": "Pasan",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -579,7 +579,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bahian",
     "address": "Masayag",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -597,7 +597,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Berou",
     "address": "East Guinacot",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -606,7 +606,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bersaluna",
     "address": "Pasan",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -615,7 +615,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bersaluna",
     "address": "Pasan",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -624,7 +624,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Cadorna",
     "address": "East Guinacot",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -633,7 +633,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Castulo",
     "address": "Looc",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -642,7 +642,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Dahan",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -660,7 +660,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Dela Peña",
     "address": "Looc",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -669,7 +669,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Escleto",
     "address": "Looc",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -678,7 +678,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Farba",
     "address": "Looc",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -696,7 +696,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Jamisola",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -732,7 +732,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Mapang",
     "address": "East Guinacot",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -741,7 +741,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Molina",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -759,7 +759,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Olier",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -777,7 +777,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Sueman",
     "address": "Manga",
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -786,14 +786,14 @@ window.GUFA_SCHEDULE = {
     "lastName": "Sumagang",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
     "id": "M088",
     "firstName": "Noel",
     "lastName": "Amoguis",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Suspended",
     "position": "Member"
@@ -802,7 +802,7 @@ window.GUFA_SCHEDULE = {
     "id": "M089",
     "firstName": "Niel",
     "lastName": "Amoguis",
-    "address": null,
+    "address": "Manga",
     "photo": null,
     "status": "Suspended",
     "position": "Member"
@@ -813,7 +813,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bahian",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -822,7 +822,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bahian",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -831,7 +831,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Balasabas",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
@@ -840,7 +840,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Berou",
     "address": null,
     "photo": null,
-    "status": "Suspended",
+    "status": "Inactive",
     "position": "Member"
   }, 
   {
