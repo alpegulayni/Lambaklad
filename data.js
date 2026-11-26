@@ -300,7 +300,7 @@ window.GUFA_SCHEDULE = {
     "lastName": "Bahian",
     "address": null,
     "photo": null,
-    "status": "Active",
+    "status": "Inactive",
     "position": "Member"
   },
   {
@@ -806,18 +806,9 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M090",
-    "firstName": "Edwin",
-    "lastName": "Bahian",
-    "address": null,
-    "photo": null,
-    "status": "Inactive",
-    "position": "Member"
-  }, 
-  {
-    "id": "M091",
     "firstName": "Jonathan",
     "lastName": "Bahian",
     "address": null,
@@ -826,7 +817,7 @@ window.GUFA_SCHEDULE = {
     "position": "Member"
   }, 
   {
-    "id": "M092",
+    "id": "M091",
     "firstName": "Fernando",
     "lastName": "Balasabas",
     "address": null,
@@ -835,7 +826,7 @@ window.GUFA_SCHEDULE = {
     "position": "Member"
   }, 
   {
-    "id": "M093",
+    "id": "M092",
     "firstName": "Engelbert",
     "lastName": "Berou",
     "address": null,
@@ -844,7 +835,7 @@ window.GUFA_SCHEDULE = {
     "position": "Member"
   }, 
   {
-    "id": "M094",
+    "id": "M093",
     "firstName": "Natividad",
     "lastName": "Berou",
     "address": "Looc",
