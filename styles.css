@@ -930,3 +930,16 @@ body {
 .attendance-worked-value { display:inline-flex; align-items:center; justify-content:center; min-width:38px; min-height:30px; padding:4px 10px; border-radius:9px; background:rgba(34,197,94,.14); border:1px solid rgba(74,222,128,.3); color:#4ade80; font-size:14px; font-weight:900; }
 .attendance-table td.attendance-penalty { min-width:125px; }
 .attendance-penalty-value { display:inline-flex; align-items:center; justify-content:center; min-width:88px; min-height:32px; padding:5px 12px; border-radius:9px; background:rgba(220,38,38,.16); border:1px solid rgba(248,113,113,.42); color:#fca5a5; font-size:13px; font-weight:900; letter-spacing:.2px; box-shadow:inset 0 1px 0 rgba(255,255,255,.04); }
+
+
+/* Compact attendance name columns with sortable Lname/Fname headers. */
+.attendance-table { min-width: 760px; }
+.attendance-table th { padding: 6px 5px; }
+.attendance-table td { padding: 4px 6px; }
+.attendance-table th:nth-child(1),
+.attendance-table td:nth-child(1) { min-width: 105px; width: 105px; }
+.attendance-table th:nth-child(2),
+.attendance-table td:nth-child(2) { min-width: 105px; width: 105px; }
+.attendance-table td.attendance-name-cell { min-width: 0; white-space: nowrap; }
+.attendance-table .column-sort { gap: 3px; font-size: 9px; }
+.attendance-table .sort-indicator { font-size: 9px; }

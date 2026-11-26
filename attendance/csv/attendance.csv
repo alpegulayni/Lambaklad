@@ -31,7 +31,7 @@ M029,Jessie,Cuestas,Manga,Active,1,0,1
 M030,Eduardo,Jamisola,Manga,Active,1,1,1
 M031,Restituto,Jamisola,Manga,Active,1,0,1
 M032,Eugenio,Laga,Manga,Active,1,1,1
-M033,Edwin,Bahian,,Active,1,1,1
+M033,Edwin,Bahian,,Inactive,1,1,1
 M034,Alejandro,Escol,Masayag,Active,0,1,0
 M035,Constancio,Casicas,Looc,Active,0,1,1
 M036,Naro,Ampusta,Looc,Active,0,1,1
@@ -59,37 +59,36 @@ M057,Michael,Manapil,Masayag,Active,1,1,1
 M058,Ismael,Cachapero,Manga,Suspended,1,1,1
 M059,Baby,Narisma,Manga,Active,1,1,1
 M060,Balong,Segobia,East Guinacot,Active,1,1,1
-M061,Sulpicio,Asilo,Looc,Suspended,1,1,1
-M062,Chris John,Aton,East Guinacot,Suspended,1,1,1
-M063,Bonifacio,Auxtero,Pasan,Suspended,1,1,1
-M064,Erwin,Bahian,Masayag,Suspended,1,1,1
+M061,Sulpicio,Asilo,Looc,Inactive,1,1,1
+M062,Chris John,Aton,East Guinacot,Inactive,1,1,1
+M063,Bonifacio,Auxtero,Pasan,Inactive,1,1,1
+M064,Erwin,Bahian,Masayag,Inactive,1,1,1
 M065,Hercolana,Baslot,Looc,Suspended,1,1,0
-M066,Epimaco,Berou,East Guinacot,Suspended,1,1,1
-M067,Jovito,Bersaluna,Pasan,Suspended,1,1,0
-M068,Jhon Earl,Bersaluna,Pasan,Suspended,1,1,1
-M069,Cesar,Cadorna,East Guinacot,Suspended,0,1,1
-M070,Benjamin,Castulo,Looc,Suspended,1,1,1
-M071,Randel,Dahan,,Suspended,1,1,1
+M066,Epimaco,Berou,East Guinacot,Inactive,1,1,1
+M067,Jovito,Bersaluna,Pasan,Inactive,1,1,0
+M068,Jhon Earl,Bersaluna,Pasan,Inactive,1,1,1
+M069,Cesar,Cadorna,East Guinacot,Inactive,0,1,1
+M070,Benjamin,Castulo,Looc,Inactive,1,1,1
+M071,Randel,Dahan,,Inactive,1,1,1
 M072,Frimo Dela,Cruz,East Guinacot,Suspended,1,0,1
-M073,Frincez Kaye,Dela Peña,Looc,Suspended,0,1,1
-M074,Hilario,Escleto,Looc,Suspended,1,1,1
-M075,Dino,Farba,Looc,Suspended,1,1,1
+M073,Frincez Kaye,Dela Peña,Looc,Inactive,0,1,1
+M074,Hilario,Escleto,Looc,Inactive,1,1,1
+M075,Dino,Farba,Looc,Inactive,1,1,1
 M076,Renato,Gultiano,Manga,Suspended,1,0,1
-M077,Jorge,Jamisola,,Suspended,0,1,1
+M077,Jorge,Jamisola,,Inactive,0,1,1
 M078,Michael,Jamisola,,Suspended,1,1,1
 M079,Edgardo,Jamisola,East Guinacot,Suspended,0,1,1
 M080,Wilfredo A.,Manapil,Masayag,Suspended,0,1,0
-M081,Sylvio,Mapang,East Guinacot,Suspended,0,0,1
-M082,Dennis,Molina,,Suspended,1,1,1
+M081,Sylvio,Mapang,East Guinacot,Inactive,0,0,1
+M082,Dennis,Molina,,Inactive,1,1,1
 M083,Roland,Narisma,Manga,Suspended,1,0,1
-M084,Vicente J.,Olier,,Suspended,1,1,0
+M084,Vicente J.,Olier,,Inactive,1,1,0
 M085,Nino,Reyes,Looc,Suspended,1,1,1
-M086,Junmar,Sueman,Manga,Suspended,0,1,1
-M087,Joevan,Sumagang,,Suspended,1,1,0
-M088,Noel,Amoguis,,Suspended,1,1,1
-M089,Niel,Amoguis,,Suspended,1,0,1
-M090,Edwin,Bahian,,Suspended,0,1,1
-M091,Jonathan,Bahian,,Suspended,1,1,1
-M092,Fernando,Balasabas,,Suspended,0,1,1
-M093,Engelbert,Berou,,Suspended,1,1,0
-M094,Natividad,Berou,Looc,Inactive,1,1,0
+M086,Junmar,Sueman,Manga,Inactive,0,1,1
+M087,Joevan,Sumagang,,Inactive,1,1,0
+M088,Noel,Amoguis,Manga,Suspended,1,1,1
+M089,Niel,Amoguis,Manga,Suspended,1,0,1
+M090,Jonathan,Bahian,,Inactive,0,1,1
+M091,Fernando,Balasabas,,Inactive,1,1,1
+M092,Engelbert,Berou,,Inactive,0,1,1
+M093,Natividad,Berou,Looc,Inactive,1,1,0
