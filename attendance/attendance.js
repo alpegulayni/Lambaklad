@@ -17,6 +17,36 @@
   let sortDirection = "asc";
   const attendance = sample.records;
   const tbody = document.getElementById("attendance-table-body");
+  const filterControls = {
+    q: document.getElementById("attendance-search"),
+    status: document.getElementById("attendance-status-filter"),
+    address: document.getElementById("attendance-address-filter")
+  };
+  const readFiltersFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    Object.entries(filterControls).forEach(([key, control]) => {
+      if (!control) return;
+      const value = params.get(key);
+      if (value === null) return;
+      const valid = key === "q" || Array.from(control.options).some(option => option.value === value);
+      if (valid) control.value = value;
+    });
+  };
+  const syncFiltersToUrl = () => {
+    const url = new URL(window.location.href);
+    const values = {
+      q: filterControls.q?.value.trim() || "",
+      status: filterControls.status?.value || "Active",
+      address: filterControls.address?.value || "All"
+    };
+    Object.entries(values).forEach(([key, value]) => {
+      const defaultValue = key === "q" ? "" : (key === "status" ? "Active" : "All");
+      if (value === defaultValue) url.searchParams.delete(key);
+      else url.searchParams.set(key, value);
+    });
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  };
+  readFiltersFromUrl();
 
   const getDay = (memberId, date) => attendance[memberId]?.[date] || { morning: false, afternoon: false };
   const getCredits = memberId => days.reduce((total, date) => {
@@ -25,6 +55,7 @@
   }, 0);
 
   const render = () => {
+    syncFiltersToUrl();
     const query = document.getElementById("attendance-search").value.trim().toLowerCase();
     const status = document.getElementById("attendance-status-filter").value;
     const address = document.getElementById("attendance-address-filter").value;
@@ -98,5 +129,9 @@
   document.getElementById("attendance-search").addEventListener("input", render);
   document.getElementById("attendance-status-filter").addEventListener("change", render);
   document.getElementById("attendance-address-filter").addEventListener("change", render);
+  window.addEventListener("popstate", () => {
+    readFiltersFromUrl();
+    render();
+  });
   render();
 })();

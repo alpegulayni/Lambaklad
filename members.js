@@ -23,7 +23,39 @@
   const tbody = document.getElementById("members-table-body");
   if (!tbody) return;
 
+  const filterControls = {
+    q: document.getElementById("member-search"),
+    status: document.getElementById("member-status-filter"),
+    address: document.getElementById("member-address-filter")
+  };
+  const allowedValues = key => key === "q" ? null : new Set(Array.from(filterControls[key].options, option => option.value));
+  const readFiltersFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    Object.entries(filterControls).forEach(([key, control]) => {
+      if (!control) return;
+      const value = params.get(key);
+      if (value === null) return;
+      if (key === "q" || allowedValues(key).has(value)) control.value = value;
+    });
+  };
+  const syncFiltersToUrl = () => {
+    const url = new URL(window.location.href);
+    const values = {
+      q: filterControls.q?.value.trim() || "",
+      status: filterControls.status?.value || "All",
+      address: filterControls.address?.value || "All"
+    };
+    Object.entries(values).forEach(([key, value]) => {
+      const defaultValue = key === "q" ? "" : "All";
+      if (value === defaultValue) url.searchParams.delete(key);
+      else url.searchParams.set(key, value);
+    });
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  };
+  readFiltersFromUrl();
+
   const render = () => {
+    syncFiltersToUrl();
     const query = document.getElementById("member-search").value.trim().toLowerCase();
     const statusFilter = document.getElementById("member-status-filter").value;
     const addressFilter = document.getElementById("member-address-filter").value;
@@ -82,6 +114,10 @@
   ["member-search", "member-status-filter", "member-address-filter"].forEach(id => {
     const control = document.getElementById(id);
     if (control) control.addEventListener(id === "member-search" ? "input" : "change", render);
+  });
+  window.addEventListener("popstate", () => {
+    readFiltersFromUrl();
+    render();
   });
   render();
 })();
