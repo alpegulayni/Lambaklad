@@ -1118,3 +1118,25 @@ body {
 .attendance-table tbody tr.attendance-inactive .attendance-member strong {
   color: inherit !important;
 }
+
+
+/* Member masterlist status icons and selected-row interaction */
+.member-status-label { gap:7px; }
+.member-status-icon {
+  display:inline-grid;
+  place-items:center;
+  width:13px;
+  height:13px;
+  font-size:11px;
+  line-height:1;
+  font-weight:900;
+}
+.member-status-label.active .member-status-icon { color:#45f58a; }
+.member-status-label.suspended { border-color:#8a6b2e; color:#f4d58b; background:#382e1a; }
+.member-status-label.suspended .member-status-icon { color:#f4d58b; }
+.member-status-label.inactive .member-status-icon { color:#d8aab5; }
+.members-table tbody .member-data-row { cursor:pointer; transition:background-color .15s ease, box-shadow .15s ease; }
+.members-table tbody .member-data-row:hover { background:#1b2b3b; }
+.members-table tbody .member-data-row.is-selected { background:#173653; box-shadow:inset 3px 0 0 #45a7ff; }
+.members-table tbody .member-data-row.is-selected td { color:#fff; }
+.members-table tbody .member-data-row:focus-visible { outline:2px solid #45a7ff; outline-offset:-2px; }

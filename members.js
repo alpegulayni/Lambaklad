@@ -54,6 +54,8 @@
   };
   readFiltersFromUrl();
 
+  let selectedMemberId = null;
+
   const render = () => {
     syncFiltersToUrl();
     const query = document.getElementById("member-search").value.trim().toLowerCase();
@@ -87,13 +89,45 @@
       const address = document.createElement("td");
       address.textContent = member.address || "—";
       const status = document.createElement("td");
+      const normalizedStatus = (member.status || "Active").toLowerCase();
       const statusLabel = document.createElement("span");
-      statusLabel.className = `member-status-label ${(member.status || "Active").toLowerCase()}`;
-      statusLabel.textContent = member.status || "Active";
+      statusLabel.className = `member-status-label ${normalizedStatus}`;
+      const statusIcon = document.createElement("span");
+      statusIcon.className = "member-status-icon";
+      statusIcon.setAttribute("aria-hidden", "true");
+      const iconByStatus = { active: "▶", suspended: "Ⅱ", inactive: "■" };
+      statusIcon.textContent = iconByStatus[normalizedStatus] || iconByStatus.active;
+      const statusText = document.createElement("span");
+      statusText.textContent = member.status || "Active";
+      statusLabel.append(statusIcon, statusText);
       status.append(statusLabel);
+
       firstName.className = "member-name-col fname-col";
       lastName.className = "member-name-col lname-col";
       row.append(lastName, firstName, address, status);
+      row.classList.add("member-data-row");
+      row.tabIndex = 0;
+      row.setAttribute("role", "button");
+      row.setAttribute("aria-label", `Select ${fullName(member)}`);
+      row.setAttribute("aria-pressed", String(member.id === selectedMemberId));
+      if (member.id === selectedMemberId) row.classList.add("is-selected");
+
+      const selectRow = () => {
+        selectedMemberId = member.id;
+        tbody.querySelectorAll(".member-data-row").forEach(item => {
+          const isSelected = item.dataset.memberId === selectedMemberId;
+          item.classList.toggle("is-selected", isSelected);
+          item.setAttribute("aria-pressed", String(isSelected));
+        });
+      };
+      row.dataset.memberId = member.id;
+      row.addEventListener("click", selectRow);
+      row.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          selectRow();
+        }
+      });
       tbody.append(row);
     });
   };
