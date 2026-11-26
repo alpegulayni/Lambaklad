@@ -1032,3 +1032,36 @@ body {
   text-overflow: clip !important;
   white-space: nowrap !important;
 }
+
+
+/* Worked and Penalty: plain text only, with consistently aligned penalty figures. */
+.attendance-table td.attendance-worked,
+.attendance-table td.attendance-penalty {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.attendance-table td.attendance-worked .attendance-worked-value,
+.attendance-table td.attendance-penalty .attendance-penalty-value,
+.attendance-table td.attendance-worked span,
+.attendance-table td.attendance-penalty span {
+  display: inline !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+.attendance-table td.attendance-penalty {
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+  padding-right: 10px !important;
+}
+.attendance-table td.attendance-worked {
+  text-align: center !important;
+  white-space: nowrap;
+}
