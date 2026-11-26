@@ -338,7 +338,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M038",
     "firstName": "Serapion",
@@ -347,7 +347,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M039",
     "firstName": "Noel",
@@ -356,7 +356,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M040",
     "firstName": "Jessie",
@@ -365,7 +365,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M041",
     "firstName": "Domingo",
@@ -374,7 +374,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M042",
     "firstName": "Jaime",
@@ -383,7 +383,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M043",
     "firstName": "Randy",
@@ -392,7 +392,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M044",
     "firstName": "Rolando",
@@ -401,7 +401,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M045",
     "firstName": "Joelito P.",
@@ -410,7 +410,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M046",
     "firstName": "Francisco",
@@ -419,7 +419,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M047",
     "firstName": "Agaton",
@@ -428,7 +428,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M048",
     "firstName": "Reynaldo",
@@ -437,7 +437,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M049",
     "firstName": "Marlon",
@@ -446,7 +446,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M050",
     "firstName": "William",
@@ -455,7 +455,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M051",
     "firstName": "Albert",
@@ -464,7 +464,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M052",
     "firstName": "Roman",
@@ -473,7 +473,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M053",
     "firstName": "Lucino",
@@ -482,7 +482,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M054",
     "firstName": "Saturnino",
@@ -491,7 +491,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M055",
     "firstName": "Necomedes",
@@ -500,7 +500,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M056",
     "firstName": "Ronel",
@@ -518,7 +518,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M058",
     "firstName": "Ismael",
@@ -536,7 +536,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M060",
     "firstName": "Balong",
@@ -545,7 +545,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Active",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M061",
     "firstName": "Sulpicio",
@@ -554,7 +554,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M062",
     "firstName": "Chris John",
@@ -563,7 +563,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M063",
     "firstName": "Bonifacio",
@@ -572,7 +572,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M064",
     "firstName": "Erwin",
@@ -581,7 +581,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M065",
     "firstName": "Hercolana",
@@ -590,7 +590,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M066",
     "firstName": "Epimaco",
@@ -599,7 +599,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M067",
     "firstName": "Jovito",
@@ -608,7 +608,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M068",
     "firstName": "Jhon Earl",
@@ -617,7 +617,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M069",
     "firstName": "Cesar",
@@ -626,7 +626,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M070",
     "firstName": "Benjamin",
@@ -635,7 +635,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M071",
     "firstName": "Randel",
@@ -644,7 +644,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M072",
     "firstName": "Frimo Dela",
@@ -653,7 +653,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M073",
     "firstName": "Frincez Kaye",
@@ -662,7 +662,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M074",
     "firstName": "Hilario",
@@ -671,7 +671,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M075",
     "firstName": "Dino",
@@ -680,7 +680,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M076",
     "firstName": "Renato",
@@ -689,7 +689,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M077",
     "firstName": "Jorge",
@@ -698,7 +698,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M078",
     "firstName": "Michael",
@@ -707,7 +707,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M079",
     "firstName": "Edgardo",
@@ -716,7 +716,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M080",
     "firstName": "Wilfredo A.",
@@ -725,7 +725,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M081",
     "firstName": "Sylvio",
@@ -734,7 +734,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M082",
     "firstName": "Dennis",
@@ -743,7 +743,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M083",
     "firstName": "Roland",
@@ -752,7 +752,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M084",
     "firstName": "Vicente J.",
@@ -761,7 +761,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M085",
     "firstName": "Nino",
@@ -770,7 +770,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M086",
     "firstName": "Junmar",
@@ -779,7 +779,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M087",
     "firstName": "Joevan",
@@ -788,7 +788,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M088",
     "firstName": "Noel",
@@ -797,7 +797,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Suspended",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M089",
     "firstName": "Niel",
@@ -815,7 +815,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M091",
     "firstName": "Fernando",
@@ -824,7 +824,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M092",
     "firstName": "Engelbert",
@@ -833,7 +833,7 @@ window.GUFA_SCHEDULE = {
     "photo": null,
     "status": "Inactive",
     "position": "Member"
-  }, 
+  },
   {
     "id": "M093",
     "firstName": "Natividad",
@@ -841,6 +841,24 @@ window.GUFA_SCHEDULE = {
     "address": "Looc",
     "photo": null,
     "status": "Inactive",
+    "position": "Member"
+  },
+  {
+    "id": "M094",
+    "firstName": "Alpe",
+    "lastName": "Gulay",
+    "address": null,
+    "photo": null,
+    "status": "Active",
+    "position": "Member"
+  },
+  {
+    "id": "M095",
+    "firstName": "Alberto",
+    "lastName": "Narisma",
+    "address": null,
+    "photo": null,
+    "status": "Active",
     "position": "Member"
   }
 ],

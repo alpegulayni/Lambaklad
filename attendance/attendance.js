@@ -11,13 +11,10 @@
   let selectedMemberId = null;
   let sortKey = "name", sortDirection = "asc";
   const ABSENCE_PENALTY = 600;
-  // Set each attendance date to "whole" or "half".
-  // Whole-day absence = ₱600; half-day absence = ₱300.
-  const ATTENDANCE_DAY_TYPES = {
-    "2026-11-21": "whole",
-    "2026-11-22": "whole",
-    "2026-11-23": "whole"
-  };
+  // Default absence penalty is ₱600 per date.
+  // Add only half-day dates here; those dates are charged 50% (₱300).
+  // Example: "2026-11-22": "half"
+  const ATTENDANCE_DAY_TYPES = {};
   const getDayPenalty = date => ATTENDANCE_DAY_TYPES[date] === "half"
     ? ABSENCE_PENALTY * 0.5
     : ABSENCE_PENALTY;

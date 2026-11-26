@@ -1,94 +1,93 @@
-﻿MemberID,FirstName,LastName,Address,Status,2026-11-21,2026-11-22,2026-11-23
-M001,Rosalito,Asilo,Looc,Active,0,1,1
-M002,Fernando,Escleto,Looc,Active,0,1,1
-M003,Archangel V.,Acierto,Looc,Active,0,0,0
-M004,Lugresio,Asilo,Pasan,Active,1,1,0
-M005,Anthony,Amoncio,Looc,Active,1,1,1
-M006,Nonon,Gulay,Looc,Active,1,1,1
-M007,Richard Maris,Tinampay,Looc,Active,1,1,1
-M008,Fulgencio,Damasing,Looc,Active,1,1,0
-M009,Samuel,Acedo,Looc,Active,1,1,1
-M010,Victor,Berou,Looc,Active,0,1,1
-M011,Rene,Peligro,Tawid Pasan,Active,1,1,1
-M012,Albano,Asilo,Tawid Pasan,Active,1,1,0
-M013,Ruel,Tadem,Looc,Active,1,0,1
-M014,Ronel,Narisma,Looc,Active,1,1,1
-M015,Ronie,Ampusta,Looc,Active,1,1,1
-M016,Rogelio,Datahan,Looc,Active,1,1,1
-M017,Henry,Acido,Looc,Active,1,0,1
-M018,Ronald,Ampusta,Looc,Active,0,0,1
-M019,Homer,Jamisola,Looc,Active,1,1,1
-M020,Licarl Joseph,Amoncio,Looc,Active,1,1,1
-M021,Junry A.,Bersabal,,Active,1,1,1
-M022,Jushua,Bersabal,,Active,1,1,1
-M023,Gabriel,Berou,Manga,Active,1,1,1
-M024,Benedict,Beruan,Looc,Active,0,1,0
-M025,Menardo,Manapil,Masayag,Active,1,1,1
-M026,Jayson,Sabillaga,East Guinacot,Active,0,1,0
-M027,Tata,Narisma,Looc,Active,1,1,1
-M028,Domingo,Narisma,Looc,Active,0,1,1
-M029,Jessie,Cuestas,Manga,Active,1,0,1
-M030,Eduardo,Jamisola,Manga,Active,1,1,1
-M031,Restituto,Jamisola,Manga,Active,1,0,1
-M032,Eugenio,Laga,Manga,Active,1,1,1
-M033,Edwin,Bahian,,Inactive,1,1,1
-M034,Alejandro,Escol,Masayag,Active,0,1,0
-M035,Constancio,Casicas,Looc,Active,0,1,1
-M036,Naro,Ampusta,Looc,Active,0,1,1
-M037,Yves,Ampusta,Looc,Active,1,1,1
-M038,Serapion,Amoncio,Looc,Active,1,1,1
-M039,Noel,Amoncio,Manga,Active,1,1,1
-M040,Jessie,Amprinto,,Active,1,1,1
-M041,Domingo,Ampusta,Looc,Suspended,0,1,1
-M042,Jaime,Aligado,,Suspended,1,1,1
-M043,Randy,Ampusta,Looc,Active,1,1,1
-M044,Rolando,Ampusta,Looc,Active,0,0,1
-M045,Joelito P.,Antipuesto,Looc,Active,1,0,1
-M046,Francisco,Asilo,Looc,Active,1,0,1
-M047,Agaton,Asilo,Looc,Active,1,1,0
-M048,Reynaldo,Cachapero,East Guinacot,Active,1,1,1
-M049,Marlon,Casicas,Looc,Active,1,1,1
-M050,William,Delig,Tawid Pasan,Active,0,1,1
-M051,Albert,Diez,,Active,1,1,0
-M052,Roman,Escol,Manga,Active,0,0,1
-M053,Lucino,Galabo,Looc,Active,1,0,1
-M054,Saturnino,Jamisola,Looc,Active,0,1,1
-M055,Necomedes,Macabasag,Looc,Active,1,1,1
-M056,Ronel,Narisma,Manga,Suspended,1,1,1
-M057,Michael,Manapil,Masayag,Active,1,1,1
-M058,Ismael,Cachapero,Manga,Suspended,1,1,1
-M059,Baby,Narisma,Manga,Active,1,1,1
-M060,Balong,Segobia,East Guinacot,Active,1,1,1
-M061,Sulpicio,Asilo,Looc,Inactive,1,1,1
-M062,Chris John,Aton,East Guinacot,Inactive,1,1,1
-M063,Bonifacio,Auxtero,Pasan,Inactive,1,1,1
-M064,Erwin,Bahian,Masayag,Inactive,1,1,1
-M065,Hercolana,Baslot,Looc,Suspended,1,1,0
-M066,Epimaco,Berou,East Guinacot,Inactive,1,1,1
-M067,Jovito,Bersaluna,Pasan,Inactive,1,1,0
-M068,Jhon Earl,Bersaluna,Pasan,Inactive,1,1,1
-M069,Cesar,Cadorna,East Guinacot,Inactive,0,1,1
-M070,Benjamin,Castulo,Looc,Inactive,1,1,1
-M071,Randel,Dahan,,Inactive,1,1,1
-M072,Frimo Dela,Cruz,East Guinacot,Suspended,1,0,1
-M073,Frincez Kaye,Dela Peña,Looc,Inactive,0,1,1
-M074,Hilario,Escleto,Looc,Inactive,1,1,1
-M075,Dino,Farba,Looc,Inactive,1,1,1
-M076,Renato,Gultiano,Manga,Suspended,1,0,1
-M077,Jorge,Jamisola,,Inactive,0,1,1
-M078,Michael,Jamisola,,Suspended,1,1,1
-M079,Edgardo,Jamisola,East Guinacot,Suspended,0,1,1
-M080,Wilfredo A.,Manapil,Masayag,Suspended,0,1,0
-M081,Sylvio,Mapang,East Guinacot,Inactive,0,0,1
-M082,Dennis,Molina,,Inactive,1,1,1
-M083,Roland,Narisma,Manga,Suspended,1,0,1
-M084,Vicente J.,Olier,,Inactive,1,1,0
-M085,Nino,Reyes,Looc,Suspended,1,1,1
-M086,Junmar,Sueman,Manga,Inactive,0,1,1
-M087,Joevan,Sumagang,,Inactive,1,1,0
-M088,Noel,Amoguis,Manga,Suspended,1,1,1
-M089,Niel,Amoguis,Manga,Suspended,1,0,1
-M090,Jonathan,Bahian,,Inactive,0,1,1
-M091,Fernando,Balasabas,,Inactive,1,1,1
-M092,Engelbert,Berou,,Inactive,0,1,1
-M093,Natividad,Berou,Looc,Inactive,1,1,0
+MemberID,FirstName,LastName,Address,Status,2026-11-20
+M009,Samuel,Acedo,Looc,Active,1
+M017,Henry,Acido,Looc,Active,1
+M003,Archangel V.,Acierto,Looc,Active,1
+M042,Jaime,Aligado,,Suspended,0
+M088,Noel,Amoguis,Manga,,1
+M089,Niel,Amoguis,Manga,,1
+M038,Serapion,Amoncio,Looc,Active,1
+M005,Anthony,Amoncio,Looc,Active,1
+M020,Licarl Joseph,Amoncio,Looc,Active,1
+M039,Noel,Amoncio,Manga,Active,1
+M040,Jessie,Amprinto,,Active,1
+M041,Domingo,Ampusta,Looc,Suspended,1
+M036,Naro,Ampusta,Looc,Active,1
+M043,Randy,Ampusta,Looc,Active,1
+M018,Ronald,Ampusta,Looc,Active,1
+M037,Yves,Ampusta,Looc,Active,1
+M044,Rolando,Ampusta,Looc,Active,1
+M015,Ronie,Ampusta,Looc,Active,1
+M045,Joelito P.,Antipuesto,Looc,Active,1
+M046,Francisco,Asilo,Looc,Active,1
+M001,Rosalito,Asilo,Looc,Active,1
+M004,Lugresio,Asilo,Pasan,Active,0
+M047,Agaton,Asilo,Looc,Active,1
+M012,Albano,Asilo,Tawid Pasan,Active,1
+M061,Sulpicio,Asilo,Looc,Suspended,0
+M062,Chris John,Aton,East Guinacot,Suspended,0
+M063,Bonifacio,Auxtero,Pasan,Suspended,0
+M064,Erwin,Bahian,Masayag,Suspended,1
+M033,Edwin,Bahian,,,1
+M090,Jonathan,Bahian,,,1
+M091,Fernando,Balasabas,,,0
+M065,Hercolana,Baslot,Looc,Suspended,0
+M010,Victor,Berou,Looc,Active,1
+M023,Gabriel,Berou,Manga,Active,1
+M066,Epimaco,Berou,East Guinacot,Suspended,1
+M092,Engelbert,Berou,,,0
+M093,Natividad,Berou,Looc,,0
+M021,Junry A.,Bersabal,,Active,1
+M022,Jushua,Bersabal,,Active,1
+M067,Jovito,Bersaluna,Pasan,Suspended,0
+M068,Jhon Earl,Bersaluna,Pasan,Suspended,0
+M024,Benedict,Beruan,Looc,Active,1
+M048,Reynaldo,Cachapero,East Guinacot,Active,1
+M058,Ismael,Cachapero,Manga,,1
+M069,Cesar,Cadorna,East Guinacot,Suspended,0
+M035,Constancio,Casicas,Looc,Active,1
+M049,Marlon,Casicas,Looc,Active,1
+M070,Benjamin,Castulo,Looc,Suspended,0
+M029,Jessie,Cuestas,Manga,Active,1
+M071,Randel,Dahan,,Suspended,0
+M008,Fulgencio,Damasing,Looc,Active,0
+M016,Rogelio,Datahan,Looc,Active,1
+M072,Frimo,Dela Cruz,East Guinacot,Suspended,1
+M073,Frincez Kaye,Dela Peña,Looc,Suspended,0
+M050,William,Delig,Tawid Pasan,Active,1
+M051,Albert,Diez,,Active,1
+M002,Fernando,Escleto,Looc,Active,1
+M074,Hilario,Escleto,Looc,Suspended,0
+M052,Roman,Escol,Manga,Active,1
+M034,Alejandro,Escol,Masayag,Active,1
+M075,Dino,Farba,Looc,Suspended,0
+M053,Lucino,Galabo,Looc,Active,1
+M094,Alpe,Gulay,,Active,1
+M076,Renato,Gultiano,Manga,Suspended,1
+M054,Saturnino,Jamisola,Looc,Active,1
+M019,Hommer,Jamisola,Looc,Active,1
+M031,Restituto,Jamisola,Manga,Active,1
+M030,Eduardo,Jamisola,Manga,Active,1
+M077,Jorge,Jamisola,,Suspended,1
+M078,Michael,Jamisola,,Suspended,0
+M079,Edgardo,Jamisola,East Guinacot,Suspended,1
+M032,Eugenio,Laga,Manga,Active,1
+M055,Necomedes,Macabasag,Looc,Active,1
+M025,Menardo,Manapil,Masayag,Active,1
+M080,Wilfredo A.,Manapil,Masayag,Suspended,1
+M057,Michael,Manapil,Masayag,Active,1
+M081,Sylvio,Mapang,East Guinacot,Suspended,0
+M082,Dennis,Molina,,Suspended,1
+M028,Domingo,Narisma,Looc,Active,0
+M095,Alberto,Narisma,,Active,1
+M059,Baby,Narisma,Manga,Active,1
+M083,Roland,Narisma,Manga,Suspended,1
+M056,Ronel,Narisma,Manga,,1
+M084,Vicente J.,Olier,,Suspended,0
+M011,Rene,Peligro,Tawid Pasan,Active,1
+M085,Nino,Reyes,Looc,Suspended,0
+M026,Jayson,Sabellaga,East Guinacot,Active,1
+M060,Balong,Segobia,East Guinacot,Active,1
+M086,Junmar,Sueman,Manga,Suspended,0
+M087,Joevan,Sumagang,,Suspended,0
+M013,Roel,Tadem,Looc,Active,1
+M007,Maris/Richard,Tinampay,Looc,Active,1
